@@ -1,0 +1,9 @@
+cff-version: 1.2.0
+message: "Please cite Spaceflight Biology Navigator software and the original NASA OSDR datasets/publications used in your analysis."
+title: "Spaceflight Biology Navigator: Open Space Biology Research Discovery Platform"
+type: software
+authors:
+  - name: "Eleni Christoforidou"
+version: 0.1.0
+license: MIT
+
