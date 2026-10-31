@@ -4,6 +4,8 @@ from __future__ import annotations
 import json
 from pathlib import Path
 
+from .osdr import redact_public_emails
+
 
 def build_seed_js(source: Path, destination: Path) -> str:
     data = json.loads(source.read_text(encoding='utf-8'))
@@ -18,7 +20,7 @@ def build_seed_js(source: Path, destination: Path) -> str:
 
 def build_catalog_js(source: Path, destination: Path) -> str:
     """Build the static catalogue page data from a saved API snapshot."""
-    data = json.loads(source.read_text(encoding='utf-8'))
+    data = redact_public_emails(json.loads(source.read_text(encoding='utf-8')))
     datasets = data.get('datasets')
     if datasets is None:
         datasets = [

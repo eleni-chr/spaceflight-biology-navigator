@@ -12,6 +12,8 @@ Retrieved **29 October 2026** from the official API:
 | [`/v2/dataset/*/metadata/`](https://visualization.osdr.nasa.gov/biodata/api/) | 644 records with aggregate metadata | Study and project titles, publication title/authors when available, organism, mission, assay, factors, source type, description, and links | Bundled in the same snapshot |
 | Publication metadata field | 527 records with a title | Title/author values supplied in NASA OSDR metadata | Shown as metadata; not independently verified as sample-level use |
 
+Email addresses embedded in source descriptions are redacted in the bundled catalog.
+
 The API documents the dataset listing and wildcard metadata endpoints. The snapshot contains every accession returned by that listing on the retrieval date; it is not a complete inventory of all OSDR services or a complete publication/research-gap audit.
 
 ## Research-topic filters

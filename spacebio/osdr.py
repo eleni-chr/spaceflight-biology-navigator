@@ -13,6 +13,21 @@ ALL_DATASET_METADATA_URL = 'https://visualization.osdr.nasa.gov/biodata/api/v2/d
 DATASET_URL = 'https://visualization.osdr.nasa.gov/biodata/api/v2/dataset/{accession}/'
 OSDR_STUDY_URL = 'https://osdr.nasa.gov/bio/repo/data/studies/{accession}'
 ACCESSION = re.compile(r'(?<![A-Za-z0-9])OSD-\d+\b', re.IGNORECASE)
+EMAIL_ADDRESS = re.compile(
+    r'[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}', re.IGNORECASE
+)
+
+
+def redact_public_emails(value: Any) -> Any:
+    """Redact email addresses embedded in public catalogue text."""
+    if isinstance(value, str):
+        return EMAIL_ADDRESS.sub('[email redacted]', value)
+    if isinstance(value, list):
+        return [redact_public_emails(item) for item in value]
+    if isinstance(value, dict):
+        return {key: redact_public_emails(item) for key, item in value.items()}
+    return value
+
 
 TOPICS = [
     {'id': 'animals', 'name': 'Animals & model organisms', 'description': 'Animal experiments, including model organisms and tissue-on-chip research.', 'research_prompts': ['Which animal models and flight conditions produce reproducible changes that can be compared across missions?']},
@@ -72,11 +87,11 @@ def _as_text(value: Any) -> str:
         return '; '.join(part for part in (_as_text(item) for item in value) if part)
     if isinstance(value, dict):
         if isinstance(value.get('name'), str):
-            return value['name'].strip()
+            return redact_public_emails(value['name'].strip())
         return ''
     if value is None:
         return ''
-    return re.sub(r'\s+', ' ', str(value)).strip()
+    return redact_public_emails(re.sub(r'\s+', ' ', str(value)).strip())
 
 
 def _first(value: Any) -> Any:
