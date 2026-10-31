@@ -1,0 +1,2641 @@
+{
+  "scope": {
+    "name": "Brain pilot",
+    "summary": "Currently showing a Brain research pilot; other biological systems will be added.",
+    "status_note": "Brain pilot evidence status (29 October 2026): The 63-accession working inventory has been reconciled systematically, but a complete census of all Brain-topic-relevant OSDR accessions and every published reuse has not been established. Source-series links (for RR-8) and project-matched links (for PROMETEO 2) are not direct citation evidence. Orange links are hypotheses, not proven solutions."
+  },
+  "papers": [
+    {
+      "id": "P01",
+      "authors": "Masarapu et al.",
+      "year": "2024",
+      "title": "Spatially resolved multiomics on the neuronal effects induced by spaceflight in mice",
+      "finding": "Spaceflight induced region- and cell-associated molecular changes in mouse brain.",
+      "gap": "Which brain signatures reproduce independently across other missions and cell-type datasets?",
+      "type": "Original",
+      "url": "https://doi.org/10.1038/s41467-024-48916-8",
+      "doi": "10.1038/s41467-024-48916-8",
+      "gap_provenance": "Analyst-inferred; hypothesis not novelty-checked",
+      "validation": "Source-backed",
+      "validation_note": "NASA publications archive lists OSD-352; original article DOI.",
+      "theme": "Spatial brain transcriptomics",
+      "used": [
+        {
+          "id": "OSD-352",
+          "role": "original",
+          "evidence": "Confirmed: NASA publications archive",
+          "url": "https://osdr.nasa.gov/bio/repo/data/studies/OSD-352"
+        }
+      ],
+      "candidate": [
+        {
+          "id": "OSD-561",
+          "purpose": "Cross-mission regional validation",
+          "screen": "DATASET IDENTIFIED — sample-level analysis not verified",
+          "limitation": "Cross-study assays and age/exposure must be harmonised",
+          "url": "https://osdr.nasa.gov/bio/repo/data/studies/OSD-561"
+        },
+        {
+          "id": "OSD-562",
+          "purpose": "Hippocampal regional validation",
+          "screen": "DATASET IDENTIFIED — sample-level analysis not verified",
+          "limitation": "Mission and sampling effects must be separated",
+          "url": "https://osdr.nasa.gov/bio/repo/data/studies/OSD-562"
+        },
+        {
+          "id": "OSD-612",
+          "purpose": "Independent whole-brain replication",
+          "screen": "DATASET IDENTIFIED — sample-level analysis not verified",
+          "limitation": "Assay differences may obscure cell-type signatures",
+          "url": "https://osdr.nasa.gov/bio/repo/data/studies/OSD-612"
+        },
+        {
+          "id": "OSD-927",
+          "purpose": "Myeloid-cell follow-up",
+          "screen": "DATASET IDENTIFIED — sample-level analysis not verified",
+          "limitation": "Cell identities and animal-level replication require review",
+          "url": "https://osdr.nasa.gov/bio/repo/data/studies/OSD-927"
+        }
+      ],
+      "follows": [
+        {
+          "id": "P21",
+          "relationship": "Independent later cell-type reanalysis in another brain atlas",
+          "update": "Neurodegeneration-related cell-type programmes have been examined; replication and phenotype remain unsettled.",
+          "url": "https://www.sciencedirect.com/science/article/pii/S2214552426001240"
+        }
+      ],
+      "buildsOn": [],
+      "x": 1475,
+      "y": 226,
+      "status": "study"
+    },
+    {
+      "id": "P02",
+      "authors": "Zhou et al.",
+      "year": "2025",
+      "title": "Behavioral and multiomics analysis of 3D clinostat simulated microgravity effect in mice focusing on the central nervous system",
+      "finding": "Simulated microgravity affected mouse CNS behaviour and molecular profiles in a multiomics study.",
+      "gap": "Which reported responses also occur during actual spaceflight rather than clinostat simulation?",
+      "type": "Secondary OSDR reuse",
+      "url": "https://doi.org/10.1038/s41598-025-90212-y",
+      "doi": "10.1038/s41598-025-90212-y",
+      "gap_provenance": "Analyst-inferred",
+      "validation": "Source-backed",
+      "validation_note": "NASA archive lists OSD-32 and OSD-352; original study includes new simulated microgravity data.",
+      "theme": "Artificial gravity",
+      "used": [
+        {
+          "id": "OSD-352",
+          "role": "secondary reuse",
+          "evidence": "Confirmed: NASA publications archive",
+          "url": "https://osdr.nasa.gov/bio/repo/data/studies/OSD-352"
+        },
+        {
+          "id": "OSD-32",
+          "role": "original dataset used",
+          "evidence": "NASA publications archive",
+          "url": "https://osdr.nasa.gov/bio/repo/data/studies/OSD-32"
+        }
+      ],
+      "candidate": [
+        {
+          "id": "OSD-561",
+          "purpose": "Compare with true spaceflight",
+          "screen": "DATASET IDENTIFIED — sample-level analysis not verified",
+          "limitation": "Clinostat and ISS conditions are not interchangeable",
+          "url": "https://osdr.nasa.gov/bio/repo/data/studies/OSD-561"
+        },
+        {
+          "id": "OSD-562",
+          "purpose": "Hippocampal in-flight comparator",
+          "screen": "DATASET IDENTIFIED — sample-level analysis not verified",
+          "limitation": "Different tissue/age/design may prevent direct comparison",
+          "url": "https://osdr.nasa.gov/bio/repo/data/studies/OSD-562"
+        }
+      ],
+      "follows": [],
+      "buildsOn": [],
+      "x": 595,
+      "y": 2098,
+      "status": "study"
+    },
+    {
+      "id": "P03",
+      "authors": "Roy et al.",
+      "year": "2025",
+      "title": "Effects of Space Flight on Inflammasome Activation in the Brain of Mice",
+      "finding": "RR-1 mouse brains showed reduced caspase-1, ASC and IL-1β protein markers after spaceflight.",
+      "gap": "Are these inflammasome changes reproducible and associated with specific cells or behavioural changes?",
+      "type": "Original",
+      "url": "https://doi.org/10.3390/cells14060417",
+      "doi": "10.3390/cells14060417",
+      "gap_provenance": "Mixed author limitation / analyst hypothesis",
+      "validation": "Source-backed",
+      "validation_note": "NASA archive lists OSD-738, OSD-751 and OSD-752.",
+      "theme": "Neuroinflammation & behaviour",
+      "used": [
+        {
+          "id": "OSD-738",
+          "role": "original",
+          "evidence": "Confirmed: NASA publications archive",
+          "url": "https://osdr.nasa.gov/bio/repo/data/studies/OSD-738"
+        },
+        {
+          "id": "OSD-751",
+          "role": "original",
+          "evidence": "Confirmed: NASA publications archive",
+          "url": "https://osdr.nasa.gov/bio/repo/data/studies/OSD-751"
+        },
+        {
+          "id": "OSD-752",
+          "role": "original",
+          "evidence": "Confirmed: NASA publications archive",
+          "url": "https://osdr.nasa.gov/bio/repo/data/studies/OSD-752"
+        }
+      ],
+      "candidate": [
+        {
+          "id": "OSD-536",
+          "purpose": "Independent neuroimmune expression",
+          "screen": "DATASET IDENTIFIED — sample-level analysis not verified",
+          "limitation": "Transcript data cannot directly replicate inflammasome proteins",
+          "url": "https://osdr.nasa.gov/bio/repo/data/studies/OSD-536"
+        },
+        {
+          "id": "OSD-927",
+          "purpose": "Myeloid-cell pathway localisation",
+          "screen": "DATASET IDENTIFIED — sample-level analysis not verified",
+          "limitation": "Myeloid fraction is not equivalent to isolated microglia",
+          "url": "https://osdr.nasa.gov/bio/repo/data/studies/OSD-927"
+        },
+        {
+          "id": "OSD-952",
+          "purpose": "Explore behavioural association",
+          "screen": "PAIRING UNKNOWN — cannot claim molecular–behavioural association",
+          "limitation": "Per-animal pairing with protein assays not established",
+          "url": "https://osdr.nasa.gov/bio/repo/data/studies/OSD-952"
+        }
+      ],
+      "follows": [],
+      "buildsOn": [],
+      "x": 335,
+      "y": 271,
+      "status": "study"
+    },
+    {
+      "id": "P04",
+      "authors": "Kiffer et al.",
+      "year": "2026",
+      "title": "Automated behavioral segmentation and markerless pose tracking of mice during spaceflight",
+      "finding": "Automated pose tracking and behavioural classification characterised RR-1 mouse flight videos.",
+      "gap": "Which neural processes correspond to the classified behaviours, and are they reproducible in other missions?",
+      "type": "Preprint, non-peer-reviewed",
+      "url": "https://doi.org/10.64898/2026.04.30.721950",
+      "doi": "10.64898/2026.04.30.721950",
+      "gap_provenance": "Analyst-inferred",
+      "validation": "Source-backed; preprint",
+      "validation_note": "OSDR video page and 2026 preprint are associated; peer review not assumed.",
+      "theme": "Neuroinflammation & behaviour",
+      "used": [
+        {
+          "id": "OSD-952",
+          "role": "preprint / associated output",
+          "evidence": "Supported: OSDR study + manuscript",
+          "url": "https://osdr.nasa.gov/bio/repo/data/studies/OSD-952"
+        }
+      ],
+      "candidate": [
+        {
+          "id": "OSD-738",
+          "purpose": "Inflammasome marker comparison",
+          "screen": "DATASET IDENTIFIED — sample-level analysis not verified",
+          "limitation": "Individual behavioural videos and brain samples not confirmed paired",
+          "url": "https://osdr.nasa.gov/bio/repo/data/studies/OSD-738"
+        },
+        {
+          "id": "OSD-751",
+          "purpose": "Cortex cytokine assay",
+          "screen": "DATASET IDENTIFIED — sample-level analysis not verified",
+          "limitation": "Cross-modal study link, not a causal test",
+          "url": "https://osdr.nasa.gov/bio/repo/data/studies/OSD-751"
+        },
+        {
+          "id": "OSD-752",
+          "purpose": "Hippocampus cytokine assay",
+          "screen": "DATASET IDENTIFIED — sample-level analysis not verified",
+          "limitation": "Cross-modal study link, not a causal test",
+          "url": "https://osdr.nasa.gov/bio/repo/data/studies/OSD-752"
+        }
+      ],
+      "follows": [],
+      "buildsOn": [],
+      "x": 732,
+      "y": 262,
+      "status": "study"
+    },
+    {
+      "id": "P05",
+      "authors": "Ronca et al.",
+      "year": "2019",
+      "title": "Behavior of mice aboard the International Space Station",
+      "finding": "ISS mice displayed organised race-tracking or circling, with age-related behavioural differences.",
+      "gap": "Which neural mechanisms underlie circling, beyond the improved video phenotyping already available?",
+      "type": "Original mission-level (accession unconfirmed)",
+      "url": "https://doi.org/10.1038/s41598-019-40789-y",
+      "doi": "10.1038/s41598-019-40789-y",
+      "gap_provenance": "Analyst-inferred",
+      "validation": "Study confirmed, accession unconfirmed",
+      "validation_note": "Paper is real; exact RR-1 video correspondence to OSD-952 not proven.",
+      "theme": "Neuroinflammation & behaviour",
+      "used": [],
+      "candidate": [
+        {
+          "id": "OSD-952",
+          "purpose": "Video phenotyping / external reuse",
+          "screen": "PAIRING UNKNOWN — cannot claim molecular–behavioural association",
+          "limitation": "Automated RR-1 behaviour is already partly addressed",
+          "url": "https://osdr.nasa.gov/bio/repo/data/studies/OSD-952"
+        },
+        {
+          "id": "OSD-738",
+          "purpose": "Inflammasome correlates",
+          "screen": "DATASET IDENTIFIED — sample-level analysis not verified",
+          "limitation": "Behaviour–protein subject IDs must be reconciled",
+          "url": "https://osdr.nasa.gov/bio/repo/data/studies/OSD-738"
+        }
+      ],
+      "follows": [],
+      "buildsOn": [],
+      "x": 335,
+      "y": 545,
+      "status": "study"
+    },
+    {
+      "id": "P06",
+      "authors": "Grandke et al.",
+      "year": "2026",
+      "title": "MiRNAs shape mouse age-independent tissue adaptation to spaceflight via ECM and developmental pathways",
+      "finding": "Spaceflight-associated miRNA changes across mouse tissues, including brain, implicated ECM and developmental regulation.",
+      "gap": "Can brain miRNA associations be independently localised to specific CNS cell populations without assuming causality?",
+      "type": "Original",
+      "url": "https://doi.org/10.1038/s41467-026-68737-1",
+      "doi": "10.1038/s41467-026-68737-1",
+      "gap_provenance": "Author-identified validation limitation / analyst brain-specific framing",
+      "validation": "Source-backed",
+      "validation_note": "OSD-916 NASA record includes original 2026 paper; do not equate RNA correlations with target validation.",
+      "theme": "Spatial brain transcriptomics",
+      "used": [
+        {
+          "id": "OSD-916",
+          "role": "original",
+          "evidence": "Confirmed: NASA study Publications field",
+          "url": "https://osdr.nasa.gov/bio/repo/data/studies/OSD-916"
+        },
+        {
+          "id": "OSD-927",
+          "role": "source-series-associated single-cell data, NOT an OSD accession explicitly named in article",
+          "evidence": "GSE295428 listed in article, which OSD-927–932 identify as their source accession; direct OSD ID absent from article data-availability list",
+          "url": "https://osdr.nasa.gov/bio/repo/data/studies/OSD-927"
+        },
+        {
+          "id": "OSD-928",
+          "role": "source-series-associated single-cell data, NOT an OSD accession explicitly named in article",
+          "evidence": "GSE295428 listed in article, which OSD-927–932 identify as their source accession; direct OSD ID absent from article data-availability list",
+          "url": "https://osdr.nasa.gov/bio/repo/data/studies/OSD-928"
+        },
+        {
+          "id": "OSD-929",
+          "role": "source-series-associated single-cell data, NOT an OSD accession explicitly named in article",
+          "evidence": "GSE295428 listed in article, which OSD-927–932 identify as their source accession; direct OSD ID absent from article data-availability list",
+          "url": "https://osdr.nasa.gov/bio/repo/data/studies/OSD-929"
+        },
+        {
+          "id": "OSD-930",
+          "role": "source-series-associated single-cell data, NOT an OSD accession explicitly named in article",
+          "evidence": "GSE295428 listed in article, which OSD-927–932 identify as their source accession; direct OSD ID absent from article data-availability list",
+          "url": "https://osdr.nasa.gov/bio/repo/data/studies/OSD-930"
+        },
+        {
+          "id": "OSD-931",
+          "role": "source-series-associated single-cell data, NOT an OSD accession explicitly named in article",
+          "evidence": "GSE295428 listed in article, which OSD-927–932 identify as their source accession; direct OSD ID absent from article data-availability list",
+          "url": "https://osdr.nasa.gov/bio/repo/data/studies/OSD-931"
+        },
+        {
+          "id": "OSD-932",
+          "role": "source-series-associated single-cell data, NOT an OSD accession explicitly named in article",
+          "evidence": "GSE295428 listed in article, which OSD-927–932 identify as their source accession; direct OSD ID absent from article data-availability list",
+          "url": "https://osdr.nasa.gov/bio/repo/data/studies/OSD-932"
+        }
+      ],
+      "candidate": [
+        {
+          "id": "OSD-927",
+          "purpose": "Cerebellar myeloid signatures",
+          "screen": "DATASET IDENTIFIED — sample-level analysis not verified",
+          "limitation": "Different missions/ages; cell-type matching needed",
+          "url": "https://osdr.nasa.gov/bio/repo/data/studies/OSD-927"
+        },
+        {
+          "id": "OSD-929",
+          "purpose": "Hippocampal myeloid signatures",
+          "screen": "DATASET IDENTIFIED — sample-level analysis not verified",
+          "limitation": "No validated direct miRNA targeting from expression alone",
+          "url": "https://osdr.nasa.gov/bio/repo/data/studies/OSD-929"
+        },
+        {
+          "id": "OSD-930",
+          "purpose": "Cerebellar non-myeloid signatures",
+          "screen": "DATASET IDENTIFIED — sample-level analysis not verified",
+          "limitation": "Check donor-level independence and cell identities",
+          "url": "https://osdr.nasa.gov/bio/repo/data/studies/OSD-930"
+        },
+        {
+          "id": "OSD-352",
+          "purpose": "Independent regional context",
+          "screen": "DATASET IDENTIFIED — sample-level analysis not verified",
+          "limitation": "Original paper already performed broad miRNA–mRNA integration",
+          "url": "https://osdr.nasa.gov/bio/repo/data/studies/OSD-352"
+        }
+      ],
+      "follows": [],
+      "buildsOn": [],
+      "x": 1680,
+      "y": 481,
+      "status": "study"
+    },
+    {
+      "id": "P07",
+      "authors": "Kremsky et al.",
+      "year": "2023",
+      "title": "Spaceflight-Induced Gene Expression Profiles in the Mouse Brain Are Attenuated by Treatment with the Antioxidant BuOE",
+      "finding": "The antioxidant BuOE attenuated many spaceflight-associated regional brain transcriptional changes.",
+      "gap": "Does the antioxidant-induced RNA response correspond to direct functional neuroprotection and suppression of ferroptotic cell damage?",
+      "type": "Original",
+      "url": "https://doi.org/10.3390/ijms241713569",
+      "doi": "10.3390/ijms241713569",
+      "gap_provenance": "Author-identified need for functional study / analyst phrasing",
+      "validation": "Source-backed",
+      "validation_note": "Original antioxidant paper linked to four regional OSDR studies.",
+      "theme": "Oxidative stress & ferroptosis",
+      "used": [
+        {
+          "id": "OSD-682",
+          "role": "original",
+          "evidence": "Confirmed: NASA study Publications field",
+          "url": "https://osdr.nasa.gov/bio/repo/data/studies/OSD-682"
+        },
+        {
+          "id": "OSD-685",
+          "role": "original",
+          "evidence": "Strong: related studies + shared named paper",
+          "url": "https://osdr.nasa.gov/bio/repo/data/studies/OSD-685"
+        },
+        {
+          "id": "OSD-698",
+          "role": "original",
+          "evidence": "Strong: related studies + shared named paper",
+          "url": "https://osdr.nasa.gov/bio/repo/data/studies/OSD-698"
+        },
+        {
+          "id": "OSD-699",
+          "role": "original",
+          "evidence": "Strong: related studies + shared named paper",
+          "url": "https://osdr.nasa.gov/bio/repo/data/studies/OSD-699"
+        }
+      ],
+      "candidate": [],
+      "follows": [
+        {
+          "id": "P24",
+          "relationship": "Subsequent pathway analysis of the same four OSDR brain datasets",
+          "update": "Earlier question about ferroptosis-related transcription has been investigated; lipid-level and cell-death validation remain outstanding.",
+          "url": "https://www.nature.com/articles/s41526-026-00649-2"
+        }
+      ],
+      "buildsOn": [],
+      "x": 2588,
+      "y": 300,
+      "status": "study"
+    },
+    {
+      "id": "P08",
+      "authors": "Mhatre et al.",
+      "year": "2022",
+      "title": "Artificial gravity partially protects space-induced neurological deficits in Drosophila melanogaster",
+      "finding": "Artificial gravity partly mitigated Drosophila flight-associated neuronal, glial and locomotor abnormalities.",
+      "gap": "Which molecular modules explain this partial protection, and can they be validated beyond the original fly experiment?",
+      "type": "Original",
+      "url": "https://doi.org/10.1016/j.celrep.2022.111279",
+      "doi": "10.1016/j.celrep.2022.111279",
+      "gap_provenance": "Analyst-inferred",
+      "validation": "Source-backed",
+      "validation_note": "NASA archive lists multi-modal Drosophila accessions.",
+      "theme": "Artificial gravity",
+      "used": [
+        {
+          "id": "OSD-514",
+          "role": "original",
+          "evidence": "Confirmed: NASA publications archive",
+          "url": "https://osdr.nasa.gov/bio/repo/data/studies/OSD-514"
+        },
+        {
+          "id": "OSD-592",
+          "role": "original / distinct assays",
+          "evidence": "Strong: NASA experiment + study titles",
+          "url": "https://osdr.nasa.gov/bio/repo/data/studies/OSD-592"
+        },
+        {
+          "id": "OSD-595",
+          "role": "original / distinct assays",
+          "evidence": "Strong: NASA experiment + study titles",
+          "url": "https://osdr.nasa.gov/bio/repo/data/studies/OSD-595"
+        },
+        {
+          "id": "OSD-596",
+          "role": "original / distinct assays",
+          "evidence": "Strong: NASA experiment + study titles",
+          "url": "https://osdr.nasa.gov/bio/repo/data/studies/OSD-596"
+        }
+      ],
+      "candidate": [
+        {
+          "id": "OSD-514",
+          "purpose": "Reanalyse fly neural RNA/protein modules",
+          "screen": "REUSE ONLY — not independent evidence",
+          "limitation": "Already used in the original experiment; not independent validation",
+          "url": "https://osdr.nasa.gov/bio/repo/data/studies/OSD-514"
+        },
+        {
+          "id": "OSD-592",
+          "purpose": "Compare with fly CNS histology",
+          "screen": "REUSE ONLY — not independent evidence",
+          "limitation": "Assay/sample pairing must be validated",
+          "url": "https://osdr.nasa.gov/bio/repo/data/studies/OSD-592"
+        },
+        {
+          "id": "OSD-595",
+          "purpose": "Test module–locomotion relationships",
+          "screen": "REUSE ONLY — not independent evidence",
+          "limitation": "Behavioural assays may not share fly individuals",
+          "url": "https://osdr.nasa.gov/bio/repo/data/studies/OSD-595"
+        }
+      ],
+      "follows": [],
+      "buildsOn": [],
+      "x": 931,
+      "y": 2258,
+      "status": "study"
+    },
+    {
+      "id": "P09",
+      "authors": "Holley et al.",
+      "year": "2022",
+      "title": "Characterization of gene expression profiles in the mouse brain after 35 days of spaceflight mission",
+      "finding": "RR-9 brain profiling revealed changes in neuroimmune, stress, metabolic and synaptic gene-expression programmes.",
+      "gap": "Which brain-cell compartments underlie the RR-9 response, and do independently observed cell-type signals predict neurovascular dysfunction?",
+      "type": "Original",
+      "url": "https://doi.org/10.1038/s41526-022-00217-4",
+      "doi": "10.1038/s41526-022-00217-4",
+      "gap_provenance": "Analyst-inferred",
+      "validation": "Source-backed",
+      "validation_note": "NASA OSD-536 Publications section lists paper.",
+      "theme": "Neuroinflammation & behaviour",
+      "used": [
+        {
+          "id": "OSD-536",
+          "role": "original",
+          "evidence": "Confirmed: NASA study Publications field",
+          "url": "https://osdr.nasa.gov/bio/repo/data/studies/OSD-536"
+        }
+      ],
+      "candidate": [
+        {
+          "id": "OSD-927",
+          "purpose": "Localise to myeloid compartments",
+          "screen": "DATASET IDENTIFIED — sample-level analysis not verified",
+          "limitation": "Different mission and different transcriptomic platforms",
+          "url": "https://osdr.nasa.gov/bio/repo/data/studies/OSD-927"
+        },
+        {
+          "id": "OSD-929",
+          "purpose": "Regional myeloid comparison",
+          "screen": "DATASET IDENTIFIED — sample-level analysis not verified",
+          "limitation": "Cell populations and animal replication must be verified",
+          "url": "https://osdr.nasa.gov/bio/repo/data/studies/OSD-929"
+        },
+        {
+          "id": "OSD-898",
+          "purpose": "Explore blood–brain barrier phenotype",
+          "screen": "REUSE ONLY — not independent evidence",
+          "limitation": "RR-9 subjects not verified as paired",
+          "url": "https://osdr.nasa.gov/bio/repo/data/studies/OSD-898"
+        }
+      ],
+      "follows": [
+        {
+          "id": "P21",
+          "relationship": "Related cell-specific neuroimmune investigation in a different mission",
+          "update": "Relevant cell-specific signatures are now published; no direct proof of RR-9 cellular origin or matching to BBB endpoints.",
+          "url": "https://www.sciencedirect.com/science/article/pii/S2214552426001240"
+        }
+      ],
+      "buildsOn": [],
+      "x": 732,
+      "y": 548,
+      "status": "study"
+    },
+    {
+      "id": "P10",
+      "authors": "Mao et al.",
+      "year": "2020",
+      "title": "Spaceflight induces oxidative damage to blood-brain barrier integrity in a mouse model",
+      "finding": "RR-9 mice showed hippocampal apoptosis-related and blood–brain barrier marker changes following spaceflight.",
+      "gap": "Are neurovascular and neuroimmune changes linked in the same animals, rather than merely the same mission?",
+      "type": "Original",
+      "url": "https://doi.org/10.1096/fj.202001754R",
+      "doi": "10.1096/fj.202001754R",
+      "gap_provenance": "Analyst-inferred",
+      "validation": "Source-backed",
+      "validation_note": "NASA OSD-898 Publications section lists original paper.",
+      "theme": "Ocular & neurovascular",
+      "used": [
+        {
+          "id": "OSD-898",
+          "role": "original",
+          "evidence": "Strong: identical NASA study/article title",
+          "url": "https://osdr.nasa.gov/bio/repo/data/studies/OSD-898"
+        }
+      ],
+      "candidate": [
+        {
+          "id": "OSD-536",
+          "purpose": "Compare RR-9 neuroimmune panel",
+          "screen": "REUSE ONLY — not independent evidence",
+          "limitation": "Within-animal matching not established",
+          "url": "https://osdr.nasa.gov/bio/repo/data/studies/OSD-536"
+        },
+        {
+          "id": "OSD-715",
+          "purpose": "Compare neurovascular markers across tissues",
+          "screen": "CROSS-TISSUE/MODALITY — hypotheses only",
+          "limitation": "Retinal barrier is not the blood–brain barrier",
+          "url": "https://osdr.nasa.gov/bio/repo/data/studies/OSD-715"
+        }
+      ],
+      "follows": [],
+      "buildsOn": [],
+      "x": 2578,
+      "y": 1079,
+      "status": "study"
+    },
+    {
+      "id": "P11",
+      "authors": "Impey et al.",
+      "year": "2023",
+      "title": "Postsynaptic density radiation signature following space irradiation",
+      "finding": "Radiation exposure was associated with cognitive outcomes and hippocampal molecular signatures across particle conditions.",
+      "gap": "Does the reported signature predict outcomes in an independent radiation cohort not analysed in the paper?",
+      "type": "Original",
+      "url": "https://doi.org/10.3389/fphys.2023.1215535",
+      "doi": "10.3389/fphys.2023.1215535",
+      "gap_provenance": "Analyst-inferred",
+      "validation": "Source-backed",
+      "validation_note": "NASA OSD-611 Publications section lists paper.",
+      "theme": "Radiation & cognition",
+      "used": [
+        {
+          "id": "OSD-611",
+          "role": "original",
+          "evidence": "Confirmed: NASA study Publications field",
+          "url": "https://osdr.nasa.gov/bio/repo/data/studies/OSD-611"
+        }
+      ],
+      "candidate": [],
+      "follows": [],
+      "buildsOn": [],
+      "x": 357,
+      "y": 1011,
+      "status": "study"
+    },
+    {
+      "id": "P12",
+      "authors": "Knierim et al.",
+      "year": "2000",
+      "title": "Three-dimensional spatial selectivity of hippocampal neurons during space flight",
+      "finding": "Hippocampal neurons maintained spatial representations across differently oriented surfaces during spaceflight.",
+      "gap": "Which circuit-level mechanisms enable three-dimensional spatial coding in microgravity?",
+      "type": "Original historic; OSDR accession newly released",
+      "url": "https://doi.org/10.1038/72910",
+      "doi": "10.1038/72910",
+      "gap_provenance": "Analyst-inferred",
+      "validation": "Directly verified",
+      "validation_note": "OSD-968 NASA record lists paper and original electrophysiology file formats.",
+      "theme": "Radiation & cognition",
+      "used": [
+        {
+          "id": "OSD-968",
+          "role": "original historic",
+          "evidence": "Confirmed: NASA study Publications field",
+          "url": "https://osdr.nasa.gov/bio/repo/data/studies/OSD-968"
+        }
+      ],
+      "candidate": [],
+      "follows": [],
+      "buildsOn": [],
+      "x": 715,
+      "y": 1318,
+      "status": "study"
+    },
+    {
+      "id": "P13",
+      "authors": "Raber et al.",
+      "year": "2021",
+      "title": "Effects of 5-Ion Beam Irradiation and Hindlimb Unloading on Metabolic Pathways in Plasma and Brain of Behaviorally Tested WAG/Rij Rats",
+      "finding": "A rat study jointly examined brain metabolites and behaviour after simulated space exposures.",
+      "gap": "Do the reported metabolic–behaviour associations generalise to an independent cohort or exposure design?",
+      "type": "Original",
+      "url": "https://doi.org/10.3389/fphys.2021.746509",
+      "doi": "10.3389/fphys.2021.746509",
+      "gap_provenance": "Analyst-inferred",
+      "validation": "Source-backed",
+      "validation_note": "Dataset titles link study to OSD-833, -834, -835; individual matching unknown.",
+      "theme": "Radiation & cognition",
+      "used": [
+        {
+          "id": "OSD-833",
+          "role": "original",
+          "evidence": "Strong: identical NASA study/article title",
+          "url": "https://osdr.nasa.gov/bio/repo/data/studies/OSD-833"
+        },
+        {
+          "id": "OSD-834",
+          "role": "original",
+          "evidence": "Strong: identical NASA study/article title",
+          "url": "https://osdr.nasa.gov/bio/repo/data/studies/OSD-834"
+        },
+        {
+          "id": "OSD-835",
+          "role": "original",
+          "evidence": "Strong: identical NASA study/article title",
+          "url": "https://osdr.nasa.gov/bio/repo/data/studies/OSD-835"
+        }
+      ],
+      "candidate": [],
+      "follows": [],
+      "buildsOn": [],
+      "x": 541,
+      "y": 1598,
+      "status": "study"
+    },
+    {
+      "id": "P14",
+      "authors": "Davis et al.",
+      "year": "2015",
+      "title": "Deficits in Sustained Attention and Changes in Dopaminergic Protein Levels following Exposure to Proton Radiation Are Related to Basal Dopaminergic Function",
+      "finding": "Proton irradiation affected sustained attention and regional dopaminergic proteins in a strain-dependent manner.",
+      "gap": "Can baseline dopaminergic state predict vulnerability independently of genetic background?",
+      "type": "Original historic; OSDR accession newly released",
+      "url": "https://doi.org/10.1371/journal.pone.0144556",
+      "doi": "10.1371/journal.pone.0144556",
+      "gap_provenance": "Author discussion / analyst framing",
+      "validation": "Source-backed",
+      "validation_note": "NASA dataset/title records match paper and assay series.",
+      "theme": "Radiation & cognition",
+      "used": [
+        {
+          "id": "OSD-896",
+          "role": "original historic",
+          "evidence": "Strong: identical NASA study/article title",
+          "url": "https://osdr.nasa.gov/bio/repo/data/studies/OSD-896"
+        },
+        {
+          "id": "OSD-897",
+          "role": "original historic",
+          "evidence": "Strong: identical NASA study/article title",
+          "url": "https://osdr.nasa.gov/bio/repo/data/studies/OSD-897"
+        },
+        {
+          "id": "OSD-939",
+          "role": "original historic",
+          "evidence": "Strong: identical NASA study/article title",
+          "url": "https://osdr.nasa.gov/bio/repo/data/studies/OSD-939"
+        }
+      ],
+      "candidate": [],
+      "follows": [],
+      "buildsOn": [],
+      "x": 723,
+      "y": 1019,
+      "status": "study"
+    },
+    {
+      "id": "P15",
+      "authors": "Overbey et al.",
+      "year": "2019",
+      "title": "Spaceflight influences gene expression, photoreceptor integrity, and oxidative stress-related damage in the murine retina",
+      "finding": "Spaceflight altered mouse retinal expression, photoreceptor integrity and oxidative-stress markers.",
+      "gap": "Do similar vascular or stress pathways appear in brain tissue, without conflating retina with CNS?",
+      "type": "Original / adjacent",
+      "url": "https://doi.org/10.1038/s41598-019-49453-x",
+      "doi": "10.1038/s41598-019-49453-x",
+      "gap_provenance": "Analyst-inferred",
+      "validation": "Source-backed",
+      "validation_note": "OSD-255 study/paper association from earlier OSDR audit.",
+      "theme": "Ocular & neurovascular",
+      "used": [
+        {
+          "id": "OSD-255",
+          "role": "original",
+          "evidence": "Confirmed: NASA study Publications field",
+          "url": "https://osdr.nasa.gov/bio/repo/data/studies/OSD-255"
+        }
+      ],
+      "candidate": [
+        {
+          "id": "OSD-898",
+          "purpose": "Compare brain BBB response",
+          "screen": "CROSS-TISSUE/MODALITY — hypotheses only",
+          "limitation": "Retina and brain endpoints differ; no causation",
+          "url": "https://osdr.nasa.gov/bio/repo/data/studies/OSD-898"
+        },
+        {
+          "id": "OSD-715",
+          "purpose": "Independent retinal proteomic context",
+          "screen": "REUSE ONLY — not independent evidence",
+          "limitation": "Assay and cohort comparability require review",
+          "url": "https://osdr.nasa.gov/bio/repo/data/studies/OSD-715"
+        }
+      ],
+      "follows": [],
+      "buildsOn": [],
+      "x": 2573,
+      "y": 1375,
+      "status": "study"
+    },
+    {
+      "id": "P16",
+      "authors": "Casaletto et al.",
+      "year": "2026",
+      "title": "Machine Learning Ensemble Reveals Distinct Molecular Pathways of Retinal Damage in Spaceflown Mice",
+      "finding": "A 2026 preprint used machine learning to analyse retinal damage-related pathways in OSDR datasets.",
+      "gap": "Can its retinal signatures be validated against independent experiments or a distinct assay modality?",
+      "type": "Secondary preprint / adjacent",
+      "url": "https://doi.org/10.64898/2026.01.22.701181",
+      "doi": "10.64898/2026.01.22.701181",
+      "gap_provenance": "Analyst-inferred",
+      "validation": "Source-backed; preprint",
+      "validation_note": "NASA publication archive lists three OSDR accessions.",
+      "theme": "Ocular & neurovascular",
+      "used": [
+        {
+          "id": "OSD-255",
+          "role": "secondary preprint",
+          "evidence": "Confirmed: NASA publications archive",
+          "url": "https://osdr.nasa.gov/bio/repo/data/studies/OSD-255"
+        },
+        {
+          "id": "OSD-557",
+          "role": "secondary preprint",
+          "evidence": "Confirmed: NASA publications archive",
+          "url": "https://osdr.nasa.gov/bio/repo/data/studies/OSD-557"
+        },
+        {
+          "id": "OSD-568",
+          "role": "secondary preprint",
+          "evidence": "Confirmed: NASA publications archive",
+          "url": "https://osdr.nasa.gov/bio/repo/data/studies/OSD-568"
+        }
+      ],
+      "candidate": [
+        {
+          "id": "OSD-715",
+          "purpose": "Independent retinal modality",
+          "screen": "REUSE ONLY — not independent evidence",
+          "limitation": "Proteomics is not a like-for-like validation of transcriptomic ML models",
+          "url": "https://osdr.nasa.gov/bio/repo/data/studies/OSD-715"
+        }
+      ],
+      "follows": [],
+      "buildsOn": [],
+      "x": 2951,
+      "y": 1391,
+      "status": "study"
+    },
+    {
+      "id": "P17",
+      "authors": "Ball et al.",
+      "year": "2026",
+      "title": "Integrated cross-species translation and biophysical multi-scale modeling links molecular signatures and locomotory phenotypes in spaceflight-induced sarcopenia",
+      "finding": "Cross-species modelling linked spaceflight muscle signatures to locomotor phenotypes.",
+      "gap": "Which locomotor alterations are driven by central neural processes rather than peripheral muscle dysfunction?",
+      "type": "Secondary OSDR reuse / adjacent",
+      "url": "https://doi.org/10.1038/s41526-025-00557-x",
+      "doi": "10.1038/s41526-025-00557-x",
+      "gap_provenance": "Analyst-inferred",
+      "validation": "Source-backed; adjacent",
+      "validation_note": "NASA archive lists OSD-478; primarily musculoskeletal, not brain.",
+      "theme": "Other related research",
+      "used": [
+        {
+          "id": "OSD-478",
+          "role": "secondary reuse",
+          "evidence": "Confirmed: NASA publications archive",
+          "url": "https://osdr.nasa.gov/bio/repo/data/studies/OSD-478"
+        }
+      ],
+      "candidate": [],
+      "follows": [],
+      "buildsOn": [],
+      "x": 2620,
+      "y": 2162,
+      "status": "study"
+    },
+    {
+      "id": "P18",
+      "authors": "Theriot & Zanello",
+      "year": "2014",
+      "title": "Molecular effects of spaceflight in the mouse eye after space shuttle mission STS-135",
+      "finding": "Spaceflight increased retinal oxidative damage staining and altered 139 retinal genes involving stress, inflammatory and neural pathways.",
+      "gap": "Which of these retinal molecular responses recur in independent spaceflight experiments or translate into measurable visual dysfunction?",
+      "type": "Original / adjacent",
+      "url": "https://doi.org/10.2478/gsr-2014-0001",
+      "doi": "10.2478/gsr-2014-0001",
+      "gap_provenance": "Analyst-inferred after publication abstract screening",
+      "validation": "Directly verified",
+      "validation_note": "OSD-87 Publications tab lists DOI and same title; DOI confirmed externally.",
+      "theme": "Ocular & neurovascular",
+      "used": [
+        {
+          "id": "OSD-87",
+          "role": "original",
+          "evidence": "Confirmed: NASA publications archive",
+          "url": "https://osdr.nasa.gov/bio/repo/data/studies/OSD-87"
+        }
+      ],
+      "candidate": [],
+      "follows": [],
+      "buildsOn": [],
+      "x": 2570,
+      "y": 1669,
+      "status": "study"
+    },
+    {
+      "id": "P19",
+      "authors": "Carmignani et al.",
+      "year": "2026",
+      "title": "Neuroprotective Effects of Cerium Oxide Nanoparticles During Spaceflight",
+      "finding": "A 2026 study reported neuroprotective effects of cerium oxide nanoparticles in spaceflight-exposed neuron-like cells.",
+      "gap": "Does transcriptomic and structural rescue by nanoceria persist in functional neural assays and independent in vivo models?",
+      "type": "Candidate — accession link not yet verified",
+      "url": "https://doi.org/10.1002/smsc.70271",
+      "doi": "10.1002/smsc.70271",
+      "gap_provenance": "Provenance check pending",
+      "validation": "Peer-reviewed paper; experiment association strongly supported; OSD-level identifier still needs direct series match",
+      "validation_note": "OSD-1005 is labelled PROMETEO 2 and the 2026 Small Science paper reports PROMETEO 2 with GEO GSE295652; explicit NASA OSD-1005-to-GSE295652 metadata could not be retrieved.",
+      "theme": "Organoids & cell models",
+      "used": [
+        {
+          "id": "OSD-1005",
+          "role": "probable original PROMETEO 2 dataset (identifier reconciliation pending)",
+          "evidence": "Study title and mission match; direct OSD-to-GEO accession linkage unconfirmed",
+          "url": "https://osdr.nasa.gov/bio/repo/data/studies/OSD-1005"
+        }
+      ],
+      "candidate": [],
+      "follows": [],
+      "buildsOn": [
+        {
+          "id": "P30",
+          "relationship": "Later PROMETEO 2 study using nanoceria rather than polydopamine",
+          "update": "These are related research programmes, not reuse of the same samples.",
+          "url": "https://doi.org/10.1002/smsc.70271"
+        }
+      ],
+      "x": 1948,
+      "y": 2043,
+      "status": "study"
+    },
+    {
+      "id": "P20",
+      "authors": "Mao et al.",
+      "year": "2019",
+      "title": "Characterization of mouse ocular response to a 35-day spaceflight mission: Evidence of blood-retinal barrier disruption and ocular adaptations",
+      "finding": "RR-9 spaceflight mice showed retinal apoptosis and blood–retinal barrier-associated changes.",
+      "gap": "Which vascular stress responses are shared with brain tissue and which are retina-specific?",
+      "type": "Original / adjacent",
+      "url": "https://doi.org/10.1038/s41598-019-44696-0",
+      "doi": "10.1038/s41598-019-44696-0",
+      "gap_provenance": "Analyst-inferred; cross-tissue comparability unverified",
+      "validation": "Source-backed",
+      "validation_note": "NASA record associated with original RR-9 ocular barrier endpoints.",
+      "theme": "Ocular & neurovascular",
+      "used": [
+        {
+          "id": "OSD-583",
+          "role": "original / distinct endpoints",
+          "evidence": "Strong: NASA records and named original publication",
+          "url": "https://osdr.nasa.gov/bio/repo/data/studies/OSD-583"
+        },
+        {
+          "id": "OSD-715",
+          "role": "original / distinct endpoints",
+          "evidence": "Strong: NASA records and named original publication",
+          "url": "https://osdr.nasa.gov/bio/repo/data/studies/OSD-715"
+        }
+      ],
+      "candidate": [
+        {
+          "id": "OSD-898",
+          "purpose": "Compare brain-barrier phenotype",
+          "screen": "CROSS-TISSUE/MODALITY — hypotheses only",
+          "limitation": "Anatomy and assays differ; matched animals unverified",
+          "url": "https://osdr.nasa.gov/bio/repo/data/studies/OSD-898"
+        },
+        {
+          "id": "OSD-536",
+          "purpose": "Compare brain immune signatures",
+          "screen": "CROSS-TISSUE/MODALITY — hypotheses only",
+          "limitation": "Panel-level expression is an indirect mechanistic endpoint",
+          "url": "https://osdr.nasa.gov/bio/repo/data/studies/OSD-536"
+        }
+      ],
+      "follows": [],
+      "buildsOn": [],
+      "x": 2950,
+      "y": 1099,
+      "status": "study"
+    },
+    {
+      "id": "P21",
+      "authors": "Piekarski et al.",
+      "year": "2026",
+      "title": "Spaceflight modulates neurodegeneration-associated transcriptomic pathways across brain cell types",
+      "finding": "Reanalysis of OSD-613 found spaceflight-associated neurodegeneration-related transcriptional programs, mitochondrial stress and early neuroimmune engagement across brain cell types.",
+      "gap": "Do these cell-type transcriptional signatures predict measurable neurodegeneration or functional deficits?",
+      "type": "Secondary OSDR reuse",
+      "url": "https://doi.org/10.1016/j.lssr.2026.08.007",
+      "doi": "10.1016/j.lssr.2026.08.007",
+      "gap_provenance": "Analyst-inferred, literature-screened; not established as a novel gap",
+      "validation": "Directly verified",
+      "validation_note": "Original 2026 article explicitly names OSD-613 and describes 4 groups; transcription does not prove disease.",
+      "theme": "Spatial brain transcriptomics",
+      "used": [
+        {
+          "id": "OSD-613",
+          "role": "secondary reuse",
+          "evidence": "Direct citation in paper / NASA archive",
+          "url": "https://osdr.nasa.gov/bio/repo/data/studies/OSD-613"
+        }
+      ],
+      "candidate": [
+        {
+          "id": "OSD-927",
+          "purpose": "Independent myeloid-cell transcriptomic comparison",
+          "screen": "DATASET IDENTIFIED — sample-level analysis not verified",
+          "limitation": "Different mission and assay; cannot demonstrate neurodegeneration or functional outcome",
+          "url": "https://osdr.nasa.gov/bio/repo/data/studies/OSD-927"
+        },
+        {
+          "id": "OSD-929",
+          "purpose": "Regional immune context",
+          "screen": "DATASET IDENTIFIED — sample-level analysis not verified",
+          "limitation": "Age and mission effects differ; no direct protein or functional endpoint",
+          "url": "https://osdr.nasa.gov/bio/repo/data/studies/OSD-929"
+        }
+      ],
+      "follows": [],
+      "buildsOn": [
+        {
+          "id": "P01",
+          "relationship": "Independent later cell-type reanalysis in another brain atlas",
+          "update": "Neurodegeneration-related cell-type programmes have been examined; replication and phenotype remain unsettled.",
+          "url": "https://www.sciencedirect.com/science/article/pii/S2214552426001240"
+        },
+        {
+          "id": "P09",
+          "relationship": "Related cell-specific neuroimmune investigation in a different mission",
+          "update": "Relevant cell-specific signatures are now published; no direct proof of RR-9 cellular origin or matching to BBB endpoints.",
+          "url": "https://www.sciencedirect.com/science/article/pii/S2214552426001240"
+        }
+      ],
+      "x": 1873,
+      "y": 234,
+      "status": "followup"
+    },
+    {
+      "id": "P22",
+      "authors": "Ra et al.",
+      "year": "2026",
+      "title": "Sex-Specific Changes in Brain Organoids from Acute Simulated Galactic Cosmic Radiation are Rescued by Targeted ECM Pathway Stimulation",
+      "finding": "Human brain organoids showed sex-associated radiation response patterns, and experimental FGFR-pathway stimulation mitigated selected changes.",
+      "gap": "Do these protective effects generalise to independent lines and predict improved neural function in vivo?",
+      "type": "Original",
+      "url": "https://doi.org/10.1002/adfm.202517942",
+      "doi": "10.1002/adfm.202517942",
+      "gap_provenance": "Analyst-inferred, literature-screened; not established as a novel gap",
+      "validation": "Directly verified",
+      "validation_note": "Original experimental paper and GEO citation explicitly match OSD-999 and OSD-1000 study titles.",
+      "theme": "Organoids & cell models",
+      "used": [
+        {
+          "id": "OSD-999",
+          "role": "original",
+          "evidence": "Direct citation in paper / NASA archive",
+          "url": "https://osdr.nasa.gov/bio/repo/data/studies/OSD-999"
+        },
+        {
+          "id": "OSD-1000",
+          "role": "original",
+          "evidence": "Direct citation in paper / NASA archive",
+          "url": "https://osdr.nasa.gov/bio/repo/data/studies/OSD-1000"
+        }
+      ],
+      "candidate": [],
+      "follows": [],
+      "buildsOn": [],
+      "x": 1592,
+      "y": 2033,
+      "status": "study"
+    },
+    {
+      "id": "P23",
+      "authors": "Martins et al.",
+      "year": "2026",
+      "title": "Proteomic dataset of MECP2-deficient and wild-type human brain organoids under spaceflight and ground conditions",
+      "finding": "A dataset descriptor released roughly 5,952 protein groups from spaceflown and ground human brain organoids with and without MECP2 deficiency.",
+      "gap": "Which genotype-by-flight protein changes are robust, and do they have independent functional confirmation?",
+      "type": "Original data descriptor",
+      "url": "https://doi.org/10.1038/s41597-026-06881-5",
+      "doi": "10.1038/s41597-026-06881-5",
+      "gap_provenance": "Analyst-inferred, literature-screened; not established as a novel gap",
+      "validation": "Directly verified",
+      "validation_note": "Data descriptor, not a study proving a functional mechanism; paper reports nine LC-MS/MS acquisitions from two individual lines.",
+      "theme": "Organoids & cell models",
+      "used": [
+        {
+          "id": "OSD-1008",
+          "role": "original",
+          "evidence": "Direct citation in paper / NASA archive",
+          "url": "https://osdr.nasa.gov/bio/repo/data/studies/OSD-1008"
+        }
+      ],
+      "candidate": [],
+      "follows": [],
+      "buildsOn": [],
+      "x": 1768,
+      "y": 2301,
+      "status": "study"
+    },
+    {
+      "id": "P24",
+      "authors": "Kim et al.",
+      "year": "2026",
+      "title": "A ferroptosis-related transcriptional signature in the brain after a 35-day spaceflight",
+      "finding": "Reanalysis of four regional datasets identified hippocampal, particularly dentate-gyrus, ferroptosis-related expression signatures after spaceflight.",
+      "gap": "Are these RNA signatures accompanied by iron-dependent lipid peroxidation and actual ferroptotic cell death?",
+      "type": "Secondary OSDR reuse",
+      "url": "https://doi.org/10.1038/s41526-026-00649-2",
+      "doi": "10.1038/s41526-026-00649-2",
+      "gap_provenance": "Analyst-inferred, literature-screened; not established as a novel gap",
+      "validation": "Directly verified",
+      "validation_note": "Source paper explicitly identifies all four accession IDs; transcriptomic pathway inference is not evidence of cell death.",
+      "theme": "Oxidative stress & ferroptosis",
+      "used": [
+        {
+          "id": "OSD-682",
+          "role": "secondary reuse",
+          "evidence": "Direct citation in paper / NASA archive",
+          "url": "https://osdr.nasa.gov/bio/repo/data/studies/OSD-682"
+        },
+        {
+          "id": "OSD-685",
+          "role": "secondary reuse",
+          "evidence": "Direct citation in paper / NASA archive",
+          "url": "https://osdr.nasa.gov/bio/repo/data/studies/OSD-685"
+        },
+        {
+          "id": "OSD-698",
+          "role": "secondary reuse",
+          "evidence": "Direct citation in paper / NASA archive",
+          "url": "https://osdr.nasa.gov/bio/repo/data/studies/OSD-698"
+        },
+        {
+          "id": "OSD-699",
+          "role": "secondary reuse",
+          "evidence": "Direct citation in paper / NASA archive",
+          "url": "https://osdr.nasa.gov/bio/repo/data/studies/OSD-699"
+        }
+      ],
+      "candidate": [],
+      "follows": [],
+      "buildsOn": [
+        {
+          "id": "P07",
+          "relationship": "Subsequent pathway analysis of the same four OSDR brain datasets",
+          "update": "Earlier question about ferroptosis-related transcription has been investigated; lipid-level and cell-death validation remain outstanding.",
+          "url": "https://www.nature.com/articles/s41526-026-00649-2"
+        }
+      ],
+      "x": 2918,
+      "y": 487,
+      "status": "followup"
+    },
+    {
+      "id": "P25",
+      "authors": "Kremsky et al.",
+      "year": "2024",
+      "title": "Artificial Gravity Attenuates the Transcriptomic Response to Spaceflight in the Optic Nerve and Retina",
+      "finding": "On-orbit artificial gravity attenuated transcriptomic alterations in mouse optic nerve and retina in a gravity-level-dependent pattern.",
+      "gap": "Does graded artificial gravity preserve neurological or visual function rather than only RNA expression?",
+      "type": "Original / adjacent",
+      "url": "https://doi.org/10.3390/ijms252212041",
+      "doi": "10.3390/ijms252212041",
+      "gap_provenance": "Analyst-inferred, literature-screened; not established as a novel gap",
+      "validation": "Directly verified",
+      "validation_note": "Original report cites 5–6 animals per flight gravity level and 12 habitat controls; optic nerve and retina are not equivalent to brain.",
+      "theme": "Ocular & neurovascular",
+      "used": [
+        {
+          "id": "OSD-758",
+          "role": "original",
+          "evidence": "Direct citation in paper / NASA archive",
+          "url": "https://osdr.nasa.gov/bio/repo/data/studies/OSD-758"
+        },
+        {
+          "id": "OSD-759",
+          "role": "original",
+          "evidence": "Direct citation in paper / NASA archive",
+          "url": "https://osdr.nasa.gov/bio/repo/data/studies/OSD-759"
+        }
+      ],
+      "candidate": [],
+      "follows": [],
+      "buildsOn": [],
+      "x": 2939,
+      "y": 1690,
+      "status": "study"
+    },
+    {
+      "id": "P26",
+      "authors": "Straume et al.",
+      "year": "2025",
+      "title": "Non-DNA radiosensitive targets that initiate persistent behavioral deficits in rats exposed to space radiation",
+      "finding": "Radiation-induced behavioural deficits in rats tracked particle fluence in patterns suggestive of sensitive targets smaller than cell nuclei.",
+      "gap": "Which membranes or other subcellular structures causally mediate these dose- and particle-dependent behavioural changes?",
+      "type": "Original",
+      "url": "https://doi.org/10.1016/j.lssr.2024.12.003",
+      "doi": "10.1016/j.lssr.2024.12.003",
+      "gap_provenance": "Analyst-inferred, literature-screened; not established as a novel gap",
+      "validation": "Source-backed",
+      "validation_note": "NASA archive explicitly lists four OSD accessions; targeted molecular data cannot be assumed from behavioural datasets.",
+      "theme": "Radiation & cognition",
+      "used": [
+        {
+          "id": "OSD-490",
+          "role": "original",
+          "evidence": "Direct citation in paper / NASA archive",
+          "url": "https://osdr.nasa.gov/bio/repo/data/studies/OSD-490"
+        },
+        {
+          "id": "OSD-492",
+          "role": "original",
+          "evidence": "Direct citation in paper / NASA archive",
+          "url": "https://osdr.nasa.gov/bio/repo/data/studies/OSD-492"
+        },
+        {
+          "id": "OSD-495",
+          "role": "original",
+          "evidence": "Direct citation in paper / NASA archive",
+          "url": "https://osdr.nasa.gov/bio/repo/data/studies/OSD-495"
+        },
+        {
+          "id": "OSD-626",
+          "role": "original",
+          "evidence": "Direct citation in paper / NASA archive",
+          "url": "https://osdr.nasa.gov/bio/repo/data/studies/OSD-626"
+        }
+      ],
+      "candidate": [],
+      "follows": [],
+      "buildsOn": [],
+      "x": 336,
+      "y": 1296,
+      "status": "study"
+    },
+    {
+      "id": "P27",
+      "authors": "Paladugu et al.",
+      "year": "2025",
+      "title": "Prediction of Cerebrospinal Fluid (CSF) Pressure with Generative Adversarial Network Synthetic Plasma-CSF Biomarker Pairing",
+      "finding": "A machine-learning study explored prediction of CSF pressure using plasma–CSF biomarker information and synthetic pairing.",
+      "gap": "Does its model predict independently measured CSF pressure in an external human cohort or astronauts?",
+      "type": "Secondary OSDR reuse",
+      "url": "https://doi.org/10.1007/s12021-025-09729-2",
+      "doi": "10.1007/s12021-025-09729-2",
+      "gap_provenance": "Analyst-inferred, literature-screened; not established as a novel gap",
+      "validation": "Source-backed",
+      "validation_note": "NASA archive lists both accessions; no independent external pressure-labelled cohort was verified.",
+      "theme": "Other related research",
+      "used": [
+        {
+          "id": "OSD-363",
+          "role": "secondary reuse",
+          "evidence": "Direct citation in paper / NASA archive",
+          "url": "https://osdr.nasa.gov/bio/repo/data/studies/OSD-363"
+        },
+        {
+          "id": "OSD-364",
+          "role": "secondary reuse",
+          "evidence": "Direct citation in paper / NASA archive",
+          "url": "https://osdr.nasa.gov/bio/repo/data/studies/OSD-364"
+        }
+      ],
+      "candidate": [],
+      "follows": [],
+      "buildsOn": [],
+      "x": 2937,
+      "y": 2322,
+      "status": "study"
+    },
+    {
+      "id": "P28",
+      "authors": "Rienecker et al.",
+      "year": "2023",
+      "title": "Combined space stressors induce independent behavioral deficits predicted by early peripheral blood monocytes",
+      "finding": "Simulated galactic cosmic radiation and housing conditions independently or interactively affected mouse cognition, while early blood monocytes improved some models of later deficits.",
+      "gap": "Can blood monocytes predict cognitive deficits prospectively before behavioural impairment becomes detectable across sexes and space-stressor combinations?",
+      "type": "Original experimental publication",
+      "url": "https://doi.org/10.1038/s41598-023-28508-0",
+      "doi": "10.1038/s41598-023-28508-0",
+      "gap_provenance": "Author-identified temporal limitation; future study inferred",
+      "validation": "Peer-reviewed article + matched NASA study-family title",
+      "validation_note": "NASA OSD-618 and OSD-640 are the behavioural and flow-cytometry components of the study with this exact title; publication DOI verified via PubMed and journal.",
+      "theme": "Radiation & cognition",
+      "used": [
+        {
+          "id": "OSD-618",
+          "role": "original behavioural assays",
+          "evidence": "NASA dataset study title matches paper; publication DOI verified",
+          "url": "https://osdr.nasa.gov/bio/repo/data/studies/OSD-618"
+        },
+        {
+          "id": "OSD-640",
+          "role": "original flow-cytometry assays",
+          "evidence": "NASA dataset study title matches paper; publication DOI verified",
+          "url": "https://osdr.nasa.gov/bio/repo/data/studies/OSD-640"
+        }
+      ],
+      "candidate": [],
+      "follows": [],
+      "buildsOn": [],
+      "x": 80,
+      "y": 1784,
+      "status": "study"
+    },
+    {
+      "id": "P29",
+      "authors": "Peng et al.",
+      "year": "2022",
+      "title": "The ex vivo human translaminar autonomous system to study spaceflight associated neuro-ocular syndrome pathogenesis",
+      "finding": "An ex vivo human donor-eye system modelling intracranial and intraocular pressure gradients produced optic-nerve and retinal morphological, inflammatory and functional abnormalities.",
+      "gap": "How accurately does this ex vivo pressure model predict SANS in astronauts across variable donor backgrounds and realistic time-varying pressure exposures?",
+      "type": "Original experimental publication",
+      "url": "https://doi.org/10.1038/s41526-022-00232-5",
+      "doi": "10.1038/s41526-022-00232-5",
+      "gap_provenance": "Publication limitations plus analyst synthesis",
+      "validation": "NASA OSD-817 explicitly lists DOI; related study family",
+      "validation_note": "OSD-817 directly lists Peng et al.; OSD-815/816/818 share the translaminar-model investigation, but individual accession-to-paper metadata were not exhaustively rechecked.",
+      "theme": "Ocular & neurovascular",
+      "used": [
+        {
+          "id": "OSD-815",
+          "role": "same original ex vivo study family",
+          "evidence": "Same translaminar-model study family, accession title and assay; cross-check requested",
+          "url": "https://osdr.nasa.gov/bio/repo/data/studies/OSD-815"
+        },
+        {
+          "id": "OSD-816",
+          "role": "same original ex vivo study family",
+          "evidence": "Same translaminar-model study family, accession title and assay; cross-check requested",
+          "url": "https://osdr.nasa.gov/bio/repo/data/studies/OSD-816"
+        },
+        {
+          "id": "OSD-817",
+          "role": "same original ex vivo study family",
+          "evidence": "Study publication entry on OSD-817",
+          "url": "https://osdr.nasa.gov/bio/repo/data/studies/OSD-817"
+        },
+        {
+          "id": "OSD-818",
+          "role": "same original ex vivo study family",
+          "evidence": "Same translaminar-model study family, accession title and assay; cross-check requested",
+          "url": "https://osdr.nasa.gov/bio/repo/data/studies/OSD-818"
+        }
+      ],
+      "candidate": [],
+      "follows": [],
+      "buildsOn": [],
+      "x": 2290,
+      "y": 1900,
+      "status": "study"
+    },
+    {
+      "id": "P30",
+      "authors": "Carmignani et al.",
+      "year": "2025/2026",
+      "title": "Polydopamine-Based Antioxidant Countermeasures Against Spaceflight-Induced Neurodegeneration",
+      "finding": "Polydopamine nanoparticles mitigated spaceflight-associated neuronal oxidative-stress and transcriptional alterations in a separate ISS neuron-like-cell experiment.",
+      "gap": "Can antioxidant protection be reproduced with alternative chemistries and verified through neural functional outcomes beyond gene-expression rescue?",
+      "type": "Original study — related earlier mission, outside mapped OSDR accession inventory",
+      "url": "https://doi.org/10.1002/smsc.202500510",
+      "doi": "10.1002/smsc.202500510",
+      "gap_provenance": "Literature-reported limitations and analyst synthesis",
+      "validation": "Peer-reviewed article; OSDR accession not mapped",
+      "validation_note": "The paper reports GEO GSE290701 for the original PROMETEO experiment; distinct from PROMETEO 2 (GSE295652 and OSD-1005). Do not assign OSD-1005 to this study.",
+      "theme": "Organoids & cell models",
+      "used": [],
+      "candidate": [],
+      "follows": [
+        {
+          "id": "P19",
+          "relationship": "Follow-on PROMETEO 2 experiment testing a different antioxidant nanomaterial",
+          "update": "Nanoceria was examined separately; efficacy of PDNPs and nanoceria was compared descriptively in the later paper.",
+          "url": "https://doi.org/10.1002/smsc.70271"
+        }
+      ],
+      "buildsOn": [],
+      "x": 1378,
+      "y": 2310,
+      "status": "study"
+    }
+  ],
+  "datasets": [
+    {
+      "id": "OSD-32",
+      "url": "https://osdr.nasa.gov/bio/repo/data/studies/OSD-32",
+      "usedBy": [
+        {
+          "paper": "P02",
+          "role": "original dataset used",
+          "evidence": "NASA publications archive"
+        }
+      ],
+      "candidateFor": [],
+      "theme": "Artificial gravity",
+      "role": "used",
+      "x": 553,
+      "y": 1921
+    },
+    {
+      "id": "OSD-87",
+      "url": "https://osdr.nasa.gov/bio/repo/data/studies/OSD-87",
+      "usedBy": [
+        {
+          "paper": "P18",
+          "role": "original",
+          "evidence": "Confirmed: NASA publications archive"
+        }
+      ],
+      "candidateFor": [],
+      "theme": "Ocular & neurovascular",
+      "role": "used",
+      "x": 2583,
+      "y": 1838
+    },
+    {
+      "id": "OSD-255",
+      "url": "https://osdr.nasa.gov/bio/repo/data/studies/OSD-255",
+      "usedBy": [
+        {
+          "paper": "P15",
+          "role": "original",
+          "evidence": "Confirmed: NASA study Publications field"
+        },
+        {
+          "paper": "P16",
+          "role": "secondary preprint",
+          "evidence": "Confirmed: NASA publications archive"
+        }
+      ],
+      "candidateFor": [],
+      "theme": "Ocular & neurovascular",
+      "role": "used",
+      "x": 2848,
+      "y": 927
+    },
+    {
+      "id": "OSD-352",
+      "url": "https://osdr.nasa.gov/bio/repo/data/studies/OSD-352",
+      "usedBy": [
+        {
+          "paper": "P01",
+          "role": "original",
+          "evidence": "Confirmed: NASA publications archive"
+        },
+        {
+          "paper": "P02",
+          "role": "secondary reuse",
+          "evidence": "Confirmed: NASA publications archive"
+        }
+      ],
+      "candidateFor": [
+        {
+          "paper": "P06",
+          "purpose": "Independent regional context"
+        }
+      ],
+      "theme": "Spatial brain transcriptomics",
+      "role": "both",
+      "x": 1602,
+      "y": 680
+    },
+    {
+      "id": "OSD-363",
+      "url": "https://osdr.nasa.gov/bio/repo/data/studies/OSD-363",
+      "usedBy": [
+        {
+          "paper": "P27",
+          "role": "secondary reuse",
+          "evidence": "Direct citation in paper / NASA archive"
+        }
+      ],
+      "candidateFor": [],
+      "theme": "Other related research",
+      "role": "used",
+      "x": 3209,
+      "y": 2386
+    },
+    {
+      "id": "OSD-364",
+      "url": "https://osdr.nasa.gov/bio/repo/data/studies/OSD-364",
+      "usedBy": [
+        {
+          "paper": "P27",
+          "role": "secondary reuse",
+          "evidence": "Direct citation in paper / NASA archive"
+        }
+      ],
+      "candidateFor": [],
+      "theme": "Other related research",
+      "role": "used",
+      "x": 2897,
+      "y": 1997
+    },
+    {
+      "id": "OSD-478",
+      "url": "https://osdr.nasa.gov/bio/repo/data/studies/OSD-478",
+      "usedBy": [
+        {
+          "paper": "P17",
+          "role": "secondary reuse",
+          "evidence": "Confirmed: NASA publications archive"
+        }
+      ],
+      "candidateFor": [],
+      "theme": "Other related research",
+      "role": "used",
+      "x": 2605,
+      "y": 2421
+    },
+    {
+      "id": "OSD-490",
+      "url": "https://osdr.nasa.gov/bio/repo/data/studies/OSD-490",
+      "usedBy": [
+        {
+          "paper": "P26",
+          "role": "original",
+          "evidence": "Direct citation in paper / NASA archive"
+        }
+      ],
+      "candidateFor": [],
+      "theme": "Radiation & cognition",
+      "role": "used",
+      "x": 125,
+      "y": 1478
+    },
+    {
+      "id": "OSD-492",
+      "url": "https://osdr.nasa.gov/bio/repo/data/studies/OSD-492",
+      "usedBy": [
+        {
+          "paper": "P26",
+          "role": "original",
+          "evidence": "Direct citation in paper / NASA archive"
+        }
+      ],
+      "candidateFor": [],
+      "theme": "Radiation & cognition",
+      "role": "used",
+      "x": 48,
+      "y": 1111
+    },
+    {
+      "id": "OSD-495",
+      "url": "https://osdr.nasa.gov/bio/repo/data/studies/OSD-495",
+      "usedBy": [
+        {
+          "paper": "P26",
+          "role": "original",
+          "evidence": "Direct citation in paper / NASA archive"
+        }
+      ],
+      "candidateFor": [],
+      "theme": "Radiation & cognition",
+      "role": "used",
+      "x": 164,
+      "y": 1554
+    },
+    {
+      "id": "OSD-514",
+      "url": "https://osdr.nasa.gov/bio/repo/data/studies/OSD-514",
+      "usedBy": [
+        {
+          "paper": "P08",
+          "role": "original",
+          "evidence": "Confirmed: NASA publications archive"
+        }
+      ],
+      "candidateFor": [
+        {
+          "paper": "P08",
+          "purpose": "Reanalyse fly neural RNA/protein modules"
+        }
+      ],
+      "theme": "Artificial gravity",
+      "role": "both",
+      "x": 967,
+      "y": 1921
+    },
+    {
+      "id": "OSD-525",
+      "url": "https://osdr.nasa.gov/bio/repo/data/studies/OSD-525",
+      "usedBy": [],
+      "candidateFor": [],
+      "theme": "Spatial brain transcriptomics",
+      "role": "unresolved",
+      "x": 1629,
+      "y": 703,
+      "new_orphan": true
+    },
+    {
+      "id": "OSD-536",
+      "url": "https://osdr.nasa.gov/bio/repo/data/studies/OSD-536",
+      "usedBy": [
+        {
+          "paper": "P09",
+          "role": "original",
+          "evidence": "Confirmed: NASA study Publications field"
+        }
+      ],
+      "candidateFor": [
+        {
+          "paper": "P03",
+          "purpose": "Independent neuroimmune expression"
+        },
+        {
+          "paper": "P10",
+          "purpose": "Compare RR-9 neuroimmune panel"
+        },
+        {
+          "paper": "P20",
+          "purpose": "Compare brain immune signatures"
+        }
+      ],
+      "theme": "Neuroinflammation & behaviour",
+      "role": "both",
+      "x": 1019,
+      "y": 598
+    },
+    {
+      "id": "OSD-557",
+      "url": "https://osdr.nasa.gov/bio/repo/data/studies/OSD-557",
+      "usedBy": [
+        {
+          "paper": "P16",
+          "role": "secondary preprint",
+          "evidence": "Confirmed: NASA publications archive"
+        }
+      ],
+      "candidateFor": [],
+      "theme": "Ocular & neurovascular",
+      "role": "used",
+      "x": 3248,
+      "y": 1612
+    },
+    {
+      "id": "OSD-561",
+      "url": "https://osdr.nasa.gov/bio/repo/data/studies/OSD-561",
+      "usedBy": [],
+      "candidateFor": [
+        {
+          "paper": "P01",
+          "purpose": "Cross-mission regional validation"
+        },
+        {
+          "paper": "P02",
+          "purpose": "Compare with true spaceflight"
+        }
+      ],
+      "theme": "Spatial brain transcriptomics",
+      "role": "candidate",
+      "x": 1284,
+      "y": 405
+    },
+    {
+      "id": "OSD-562",
+      "url": "https://osdr.nasa.gov/bio/repo/data/studies/OSD-562",
+      "usedBy": [],
+      "candidateFor": [
+        {
+          "paper": "P01",
+          "purpose": "Hippocampal regional validation"
+        },
+        {
+          "paper": "P02",
+          "purpose": "Hippocampal in-flight comparator"
+        }
+      ],
+      "theme": "Spatial brain transcriptomics",
+      "role": "candidate",
+      "x": 1429,
+      "y": 644
+    },
+    {
+      "id": "OSD-563",
+      "url": "https://osdr.nasa.gov/bio/repo/data/studies/OSD-563",
+      "usedBy": [],
+      "candidateFor": [],
+      "theme": "Spatial brain transcriptomics",
+      "role": "unresolved",
+      "x": 1296,
+      "y": 613,
+      "new_orphan": true
+    },
+    {
+      "id": "OSD-564",
+      "url": "https://osdr.nasa.gov/bio/repo/data/studies/OSD-564",
+      "usedBy": [],
+      "candidateFor": [],
+      "theme": "Spatial brain transcriptomics",
+      "role": "unresolved",
+      "x": 1109,
+      "y": 414,
+      "new_orphan": true
+    },
+    {
+      "id": "OSD-568",
+      "url": "https://osdr.nasa.gov/bio/repo/data/studies/OSD-568",
+      "usedBy": [
+        {
+          "paper": "P16",
+          "role": "secondary preprint",
+          "evidence": "Confirmed: NASA publications archive"
+        }
+      ],
+      "candidateFor": [],
+      "theme": "Ocular & neurovascular",
+      "role": "used",
+      "x": 3248,
+      "y": 1188
+    },
+    {
+      "id": "OSD-583",
+      "url": "https://osdr.nasa.gov/bio/repo/data/studies/OSD-583",
+      "usedBy": [
+        {
+          "paper": "P20",
+          "role": "original / distinct endpoints",
+          "evidence": "Strong: NASA records and named original publication"
+        }
+      ],
+      "candidateFor": [],
+      "theme": "Ocular & neurovascular",
+      "role": "used",
+      "x": 3025,
+      "y": 905
+    },
+    {
+      "id": "OSD-592",
+      "url": "https://osdr.nasa.gov/bio/repo/data/studies/OSD-592",
+      "usedBy": [
+        {
+          "paper": "P08",
+          "role": "original / distinct assays",
+          "evidence": "Strong: NASA experiment + study titles"
+        }
+      ],
+      "candidateFor": [
+        {
+          "paper": "P08",
+          "purpose": "Compare with fly CNS histology"
+        }
+      ],
+      "theme": "Artificial gravity",
+      "role": "both",
+      "x": 914,
+      "y": 2429
+    },
+    {
+      "id": "OSD-595",
+      "url": "https://osdr.nasa.gov/bio/repo/data/studies/OSD-595",
+      "usedBy": [
+        {
+          "paper": "P08",
+          "role": "original / distinct assays",
+          "evidence": "Strong: NASA experiment + study titles"
+        }
+      ],
+      "candidateFor": [
+        {
+          "paper": "P08",
+          "purpose": "Test module–locomotion relationships"
+        }
+      ],
+      "theme": "Artificial gravity",
+      "role": "both",
+      "x": 1152,
+      "y": 2073
+    },
+    {
+      "id": "OSD-596",
+      "url": "https://osdr.nasa.gov/bio/repo/data/studies/OSD-596",
+      "usedBy": [
+        {
+          "paper": "P08",
+          "role": "original / distinct assays",
+          "evidence": "Strong: NASA experiment + study titles"
+        }
+      ],
+      "candidateFor": [],
+      "theme": "Artificial gravity",
+      "role": "used",
+      "x": 799,
+      "y": 2448
+    },
+    {
+      "id": "OSD-611",
+      "url": "https://osdr.nasa.gov/bio/repo/data/studies/OSD-611",
+      "usedBy": [
+        {
+          "paper": "P11",
+          "role": "original",
+          "evidence": "Confirmed: NASA study Publications field"
+        }
+      ],
+      "candidateFor": [],
+      "theme": "Radiation & cognition",
+      "role": "used",
+      "x": 391,
+      "y": 796
+    },
+    {
+      "id": "OSD-612",
+      "url": "https://osdr.nasa.gov/bio/repo/data/studies/OSD-612",
+      "usedBy": [],
+      "candidateFor": [
+        {
+          "paper": "P01",
+          "purpose": "Independent whole-brain replication"
+        }
+      ],
+      "theme": "Spatial brain transcriptomics",
+      "role": "candidate",
+      "x": 1206,
+      "y": 153
+    },
+    {
+      "id": "OSD-613",
+      "url": "https://osdr.nasa.gov/bio/repo/data/studies/OSD-613",
+      "usedBy": [
+        {
+          "paper": "P21",
+          "role": "secondary reuse",
+          "evidence": "Direct citation in paper / NASA archive"
+        }
+      ],
+      "candidateFor": [],
+      "theme": "Spatial brain transcriptomics",
+      "role": "used",
+      "x": 2140,
+      "y": 139
+    },
+    {
+      "id": "OSD-618",
+      "url": "https://osdr.nasa.gov/bio/repo/data/studies/OSD-618",
+      "usedBy": [
+        {
+          "paper": "P28",
+          "role": "original behavioural assays",
+          "evidence": "NASA dataset study title matches paper; publication DOI verified"
+        }
+      ],
+      "candidateFor": [],
+      "theme": "Radiation & cognition",
+      "role": "used",
+      "x": 485,
+      "y": 1897,
+      "new_orphan": true
+    },
+    {
+      "id": "OSD-626",
+      "url": "https://osdr.nasa.gov/bio/repo/data/studies/OSD-626",
+      "usedBy": [
+        {
+          "paper": "P26",
+          "role": "original",
+          "evidence": "Direct citation in paper / NASA archive"
+        }
+      ],
+      "candidateFor": [],
+      "theme": "Radiation & cognition",
+      "role": "used",
+      "x": 81,
+      "y": 1042
+    },
+    {
+      "id": "OSD-640",
+      "url": "https://osdr.nasa.gov/bio/repo/data/studies/OSD-640",
+      "usedBy": [
+        {
+          "paper": "P28",
+          "role": "original flow-cytometry assays",
+          "evidence": "NASA dataset study title matches paper; publication DOI verified"
+        }
+      ],
+      "candidateFor": [],
+      "theme": "Radiation & cognition",
+      "role": "used",
+      "x": 129,
+      "y": 1755,
+      "new_orphan": true
+    },
+    {
+      "id": "OSD-682",
+      "url": "https://osdr.nasa.gov/bio/repo/data/studies/OSD-682",
+      "usedBy": [
+        {
+          "paper": "P07",
+          "role": "original",
+          "evidence": "Confirmed: NASA study Publications field"
+        },
+        {
+          "paper": "P24",
+          "role": "secondary reuse",
+          "evidence": "Direct citation in paper / NASA archive"
+        }
+      ],
+      "candidateFor": [],
+      "theme": "Oxidative stress & ferroptosis",
+      "role": "used",
+      "x": 2822,
+      "y": 656
+    },
+    {
+      "id": "OSD-685",
+      "url": "https://osdr.nasa.gov/bio/repo/data/studies/OSD-685",
+      "usedBy": [
+        {
+          "paper": "P07",
+          "role": "original",
+          "evidence": "Strong: related studies + shared named paper"
+        },
+        {
+          "paper": "P24",
+          "role": "secondary reuse",
+          "evidence": "Direct citation in paper / NASA archive"
+        }
+      ],
+      "candidateFor": [],
+      "theme": "Oxidative stress & ferroptosis",
+      "role": "used",
+      "x": 2678,
+      "y": 94
+    },
+    {
+      "id": "OSD-698",
+      "url": "https://osdr.nasa.gov/bio/repo/data/studies/OSD-698",
+      "usedBy": [
+        {
+          "paper": "P07",
+          "role": "original",
+          "evidence": "Strong: related studies + shared named paper"
+        },
+        {
+          "paper": "P24",
+          "role": "secondary reuse",
+          "evidence": "Direct citation in paper / NASA archive"
+        }
+      ],
+      "candidateFor": [],
+      "theme": "Oxidative stress & ferroptosis",
+      "role": "used",
+      "x": 2575,
+      "y": 630
+    },
+    {
+      "id": "OSD-699",
+      "url": "https://osdr.nasa.gov/bio/repo/data/studies/OSD-699",
+      "usedBy": [
+        {
+          "paper": "P07",
+          "role": "original",
+          "evidence": "Strong: related studies + shared named paper"
+        },
+        {
+          "paper": "P24",
+          "role": "secondary reuse",
+          "evidence": "Direct citation in paper / NASA archive"
+        }
+      ],
+      "candidateFor": [],
+      "theme": "Oxidative stress & ferroptosis",
+      "role": "used",
+      "x": 3112,
+      "y": 281
+    },
+    {
+      "id": "OSD-715",
+      "url": "https://osdr.nasa.gov/bio/repo/data/studies/OSD-715",
+      "usedBy": [
+        {
+          "paper": "P20",
+          "role": "original / distinct endpoints",
+          "evidence": "Strong: NASA records and named original publication"
+        }
+      ],
+      "candidateFor": [
+        {
+          "paper": "P10",
+          "purpose": "Compare neurovascular markers across tissues"
+        },
+        {
+          "paper": "P15",
+          "purpose": "Independent retinal proteomic context"
+        },
+        {
+          "paper": "P16",
+          "purpose": "Independent retinal modality"
+        }
+      ],
+      "theme": "Ocular & neurovascular",
+      "role": "both",
+      "x": 3216,
+      "y": 1114
+    },
+    {
+      "id": "OSD-738",
+      "url": "https://osdr.nasa.gov/bio/repo/data/studies/OSD-738",
+      "usedBy": [
+        {
+          "paper": "P03",
+          "role": "original",
+          "evidence": "Confirmed: NASA publications archive"
+        }
+      ],
+      "candidateFor": [
+        {
+          "paper": "P04",
+          "purpose": "Inflammasome marker comparison"
+        },
+        {
+          "paper": "P05",
+          "purpose": "Inflammasome correlates"
+        }
+      ],
+      "theme": "Neuroinflammation & behaviour",
+      "role": "both",
+      "x": 738,
+      "y": 68
+    },
+    {
+      "id": "OSD-751",
+      "url": "https://osdr.nasa.gov/bio/repo/data/studies/OSD-751",
+      "usedBy": [
+        {
+          "paper": "P03",
+          "role": "original",
+          "evidence": "Confirmed: NASA publications archive"
+        }
+      ],
+      "candidateFor": [
+        {
+          "paper": "P04",
+          "purpose": "Cortex cytokine assay"
+        }
+      ],
+      "theme": "Neuroinflammation & behaviour",
+      "role": "both",
+      "x": 310,
+      "y": 722
+    },
+    {
+      "id": "OSD-752",
+      "url": "https://osdr.nasa.gov/bio/repo/data/studies/OSD-752",
+      "usedBy": [
+        {
+          "paper": "P03",
+          "role": "original",
+          "evidence": "Confirmed: NASA publications archive"
+        }
+      ],
+      "candidateFor": [
+        {
+          "paper": "P04",
+          "purpose": "Hippocampus cytokine assay"
+        }
+      ],
+      "theme": "Neuroinflammation & behaviour",
+      "role": "both",
+      "x": 995,
+      "y": 307
+    },
+    {
+      "id": "OSD-758",
+      "url": "https://osdr.nasa.gov/bio/repo/data/studies/OSD-758",
+      "usedBy": [
+        {
+          "paper": "P25",
+          "role": "original",
+          "evidence": "Direct citation in paper / NASA archive"
+        }
+      ],
+      "candidateFor": [],
+      "theme": "Ocular & neurovascular",
+      "role": "used",
+      "x": 2889,
+      "y": 1862
+    },
+    {
+      "id": "OSD-759",
+      "url": "https://osdr.nasa.gov/bio/repo/data/studies/OSD-759",
+      "usedBy": [
+        {
+          "paper": "P25",
+          "role": "original",
+          "evidence": "Direct citation in paper / NASA archive"
+        }
+      ],
+      "candidateFor": [],
+      "theme": "Ocular & neurovascular",
+      "role": "used",
+      "x": 2765,
+      "y": 1882
+    },
+    {
+      "id": "OSD-815",
+      "url": "https://osdr.nasa.gov/bio/repo/data/studies/OSD-815",
+      "usedBy": [
+        {
+          "paper": "P29",
+          "role": "same original ex vivo study family",
+          "evidence": "Same translaminar-model study family, accession title and assay; cross-check requested"
+        }
+      ],
+      "candidateFor": [],
+      "theme": "Ocular & neurovascular",
+      "role": "used",
+      "x": 2711,
+      "y": 2022,
+      "new_orphan": true
+    },
+    {
+      "id": "OSD-816",
+      "url": "https://osdr.nasa.gov/bio/repo/data/studies/OSD-816",
+      "usedBy": [
+        {
+          "paper": "P29",
+          "role": "same original ex vivo study family",
+          "evidence": "Same translaminar-model study family, accession title and assay; cross-check requested"
+        }
+      ],
+      "candidateFor": [],
+      "theme": "Ocular & neurovascular",
+      "role": "used",
+      "x": 2361,
+      "y": 1871,
+      "new_orphan": true
+    },
+    {
+      "id": "OSD-817",
+      "url": "https://osdr.nasa.gov/bio/repo/data/studies/OSD-817",
+      "usedBy": [
+        {
+          "paper": "P29",
+          "role": "same original ex vivo study family",
+          "evidence": "Study publication entry on OSD-817"
+        }
+      ],
+      "candidateFor": [],
+      "theme": "Ocular & neurovascular",
+      "role": "used",
+      "x": 2165,
+      "y": 1540,
+      "new_orphan": true
+    },
+    {
+      "id": "OSD-818",
+      "url": "https://osdr.nasa.gov/bio/repo/data/studies/OSD-818",
+      "usedBy": [
+        {
+          "paper": "P29",
+          "role": "same original ex vivo study family",
+          "evidence": "Same translaminar-model study family, accession title and assay; cross-check requested"
+        }
+      ],
+      "candidateFor": [],
+      "theme": "Ocular & neurovascular",
+      "role": "used",
+      "x": 2198,
+      "y": 1155,
+      "new_orphan": true
+    },
+    {
+      "id": "OSD-833",
+      "url": "https://osdr.nasa.gov/bio/repo/data/studies/OSD-833",
+      "usedBy": [
+        {
+          "paper": "P13",
+          "role": "original",
+          "evidence": "Strong: identical NASA study/article title"
+        }
+      ],
+      "candidateFor": [],
+      "theme": "Radiation & cognition",
+      "role": "used",
+      "x": 640,
+      "y": 1836
+    },
+    {
+      "id": "OSD-834",
+      "url": "https://osdr.nasa.gov/bio/repo/data/studies/OSD-834",
+      "usedBy": [
+        {
+          "paper": "P13",
+          "role": "original",
+          "evidence": "Strong: identical NASA study/article title"
+        }
+      ],
+      "candidateFor": [],
+      "theme": "Radiation & cognition",
+      "role": "used",
+      "x": 816,
+      "y": 1665
+    },
+    {
+      "id": "OSD-835",
+      "url": "https://osdr.nasa.gov/bio/repo/data/studies/OSD-835",
+      "usedBy": [
+        {
+          "paper": "P13",
+          "role": "original",
+          "evidence": "Strong: identical NASA study/article title"
+        }
+      ],
+      "candidateFor": [],
+      "theme": "Radiation & cognition",
+      "role": "used",
+      "x": 264,
+      "y": 1665
+    },
+    {
+      "id": "OSD-896",
+      "url": "https://osdr.nasa.gov/bio/repo/data/studies/OSD-896",
+      "usedBy": [
+        {
+          "paper": "P14",
+          "role": "original historic",
+          "evidence": "Strong: identical NASA study/article title"
+        }
+      ],
+      "candidateFor": [],
+      "theme": "Radiation & cognition",
+      "role": "used",
+      "x": 805,
+      "y": 846
+    },
+    {
+      "id": "OSD-897",
+      "url": "https://osdr.nasa.gov/bio/repo/data/studies/OSD-897",
+      "usedBy": [
+        {
+          "paper": "P14",
+          "role": "original historic",
+          "evidence": "Strong: identical NASA study/article title"
+        }
+      ],
+      "candidateFor": [],
+      "theme": "Radiation & cognition",
+      "role": "used",
+      "x": 689,
+      "y": 796
+    },
+    {
+      "id": "OSD-898",
+      "url": "https://osdr.nasa.gov/bio/repo/data/studies/OSD-898",
+      "usedBy": [
+        {
+          "paper": "P10",
+          "role": "original",
+          "evidence": "Strong: identical NASA study/article title"
+        }
+      ],
+      "candidateFor": [
+        {
+          "paper": "P09",
+          "purpose": "Explore blood–brain barrier phenotype"
+        },
+        {
+          "paper": "P15",
+          "purpose": "Compare brain BBB response"
+        },
+        {
+          "paper": "P20",
+          "purpose": "Compare brain-barrier phenotype"
+        }
+      ],
+      "theme": "Ocular & neurovascular",
+      "role": "both",
+      "x": 2618,
+      "y": 852
+    },
+    {
+      "id": "OSD-916",
+      "url": "https://osdr.nasa.gov/bio/repo/data/studies/OSD-916",
+      "usedBy": [
+        {
+          "paper": "P06",
+          "role": "original",
+          "evidence": "Confirmed: NASA study Publications field"
+        }
+      ],
+      "candidateFor": [],
+      "theme": "Spatial brain transcriptomics",
+      "role": "used",
+      "x": 1732,
+      "y": 682
+    },
+    {
+      "id": "OSD-927",
+      "url": "https://osdr.nasa.gov/bio/repo/data/studies/OSD-927",
+      "usedBy": [
+        {
+          "paper": "P06",
+          "role": "source-series-associated single-cell data, NOT an OSD accession explicitly named in article",
+          "evidence": "GSE295428 listed in article, which OSD-927–932 identify as their source accession; direct OSD ID absent from article data-availability list"
+        }
+      ],
+      "candidateFor": [
+        {
+          "paper": "P01",
+          "purpose": "Myeloid-cell follow-up"
+        },
+        {
+          "paper": "P03",
+          "purpose": "Myeloid-cell pathway localisation"
+        },
+        {
+          "paper": "P06",
+          "purpose": "Cerebellar myeloid signatures"
+        },
+        {
+          "paper": "P09",
+          "purpose": "Localise to myeloid compartments"
+        },
+        {
+          "paper": "P21",
+          "purpose": "Independent myeloid-cell transcriptomic comparison"
+        }
+      ],
+      "theme": "Spatial brain transcriptomics",
+      "role": "both",
+      "x": 1210,
+      "y": 241
+    },
+    {
+      "id": "OSD-928",
+      "url": "https://osdr.nasa.gov/bio/repo/data/studies/OSD-928",
+      "usedBy": [
+        {
+          "paper": "P06",
+          "role": "source-series-associated single-cell data, NOT an OSD accession explicitly named in article",
+          "evidence": "GSE295428 listed in article, which OSD-927–932 identify as their source accession; direct OSD ID absent from article data-availability list"
+        }
+      ],
+      "candidateFor": [],
+      "theme": "Neuroinflammation & behaviour",
+      "role": "used",
+      "x": 504,
+      "y": 818,
+      "new_orphan": true
+    },
+    {
+      "id": "OSD-929",
+      "url": "https://osdr.nasa.gov/bio/repo/data/studies/OSD-929",
+      "usedBy": [
+        {
+          "paper": "P06",
+          "role": "source-series-associated single-cell data, NOT an OSD accession explicitly named in article",
+          "evidence": "GSE295428 listed in article, which OSD-927–932 identify as their source accession; direct OSD ID absent from article data-availability list"
+        }
+      ],
+      "candidateFor": [
+        {
+          "paper": "P06",
+          "purpose": "Hippocampal myeloid signatures"
+        },
+        {
+          "paper": "P09",
+          "purpose": "Regional myeloid comparison"
+        },
+        {
+          "paper": "P21",
+          "purpose": "Regional immune context"
+        }
+      ],
+      "theme": "Spatial brain transcriptomics",
+      "role": "both",
+      "x": 1333,
+      "y": 474
+    },
+    {
+      "id": "OSD-930",
+      "url": "https://osdr.nasa.gov/bio/repo/data/studies/OSD-930",
+      "usedBy": [
+        {
+          "paper": "P06",
+          "role": "source-series-associated single-cell data, NOT an OSD accession explicitly named in article",
+          "evidence": "GSE295428 listed in article, which OSD-927–932 identify as their source accession; direct OSD ID absent from article data-availability list"
+        }
+      ],
+      "candidateFor": [
+        {
+          "paper": "P06",
+          "purpose": "Cerebellar non-myeloid signatures"
+        }
+      ],
+      "theme": "Spatial brain transcriptomics",
+      "role": "both",
+      "x": 1950,
+      "y": 531
+    },
+    {
+      "id": "OSD-931",
+      "url": "https://osdr.nasa.gov/bio/repo/data/studies/OSD-931",
+      "usedBy": [
+        {
+          "paper": "P06",
+          "role": "source-series-associated single-cell data, NOT an OSD accession explicitly named in article",
+          "evidence": "GSE295428 listed in article, which OSD-927–932 identify as their source accession; direct OSD ID absent from article data-availability list"
+        }
+      ],
+      "candidateFor": [],
+      "theme": "Neuroinflammation & behaviour",
+      "role": "used",
+      "x": 140,
+      "y": 718,
+      "new_orphan": true
+    },
+    {
+      "id": "OSD-932",
+      "url": "https://osdr.nasa.gov/bio/repo/data/studies/OSD-932",
+      "usedBy": [
+        {
+          "paper": "P06",
+          "role": "source-series-associated single-cell data, NOT an OSD accession explicitly named in article",
+          "evidence": "GSE295428 listed in article, which OSD-927–932 identify as their source accession; direct OSD ID absent from article data-availability list"
+        }
+      ],
+      "candidateFor": [],
+      "theme": "Neuroinflammation & behaviour",
+      "role": "used",
+      "x": -63,
+      "y": 498,
+      "new_orphan": true
+    },
+    {
+      "id": "OSD-939",
+      "url": "https://osdr.nasa.gov/bio/repo/data/studies/OSD-939",
+      "usedBy": [
+        {
+          "paper": "P14",
+          "role": "original historic",
+          "evidence": "Strong: identical NASA study/article title"
+        }
+      ],
+      "candidateFor": [],
+      "theme": "Radiation & cognition",
+      "role": "used",
+      "x": 986,
+      "y": 1020
+    },
+    {
+      "id": "OSD-952",
+      "url": "https://osdr.nasa.gov/bio/repo/data/studies/OSD-952",
+      "usedBy": [
+        {
+          "paper": "P04",
+          "role": "preprint / associated output",
+          "evidence": "Supported: OSDR study + manuscript"
+        }
+      ],
+      "candidateFor": [
+        {
+          "paper": "P03",
+          "purpose": "Explore behavioural association"
+        },
+        {
+          "paper": "P05",
+          "purpose": "Video phenotyping / external reuse"
+        }
+      ],
+      "theme": "Neuroinflammation & behaviour",
+      "role": "both",
+      "x": 64,
+      "y": 257
+    },
+    {
+      "id": "OSD-968",
+      "url": "https://osdr.nasa.gov/bio/repo/data/studies/OSD-968",
+      "usedBy": [
+        {
+          "paper": "P12",
+          "role": "original historic",
+          "evidence": "Confirmed: NASA study Publications field"
+        }
+      ],
+      "candidateFor": [],
+      "theme": "Radiation & cognition",
+      "role": "used",
+      "x": 979,
+      "y": 1225
+    },
+    {
+      "id": "OSD-999",
+      "url": "https://osdr.nasa.gov/bio/repo/data/studies/OSD-999",
+      "usedBy": [
+        {
+          "paper": "P22",
+          "role": "original",
+          "evidence": "Direct citation in paper / NASA archive"
+        }
+      ],
+      "candidateFor": [],
+      "theme": "Organoids & cell models",
+      "role": "used",
+      "x": 1653,
+      "y": 1828
+    },
+    {
+      "id": "OSD-1000",
+      "url": "https://osdr.nasa.gov/bio/repo/data/studies/OSD-1000",
+      "usedBy": [
+        {
+          "paper": "P22",
+          "role": "original",
+          "evidence": "Direct citation in paper / NASA archive"
+        }
+      ],
+      "candidateFor": [],
+      "theme": "Organoids & cell models",
+      "role": "used",
+      "x": 1742,
+      "y": 1781
+    },
+    {
+      "id": "OSD-1005",
+      "url": "https://osdr.nasa.gov/bio/repo/data/studies/OSD-1005",
+      "usedBy": [
+        {
+          "paper": "P19",
+          "role": "probable original PROMETEO 2 dataset (identifier reconciliation pending)",
+          "evidence": "Study title and mission match; direct OSD-to-GEO accession linkage unconfirmed"
+        }
+      ],
+      "candidateFor": [],
+      "theme": "Organoids & cell models",
+      "role": "used",
+      "x": 1717,
+      "y": 2528,
+      "new_orphan": true
+    },
+    {
+      "id": "OSD-1008",
+      "url": "https://osdr.nasa.gov/bio/repo/data/studies/OSD-1008",
+      "usedBy": [
+        {
+          "paper": "P23",
+          "role": "original",
+          "evidence": "Direct citation in paper / NASA archive"
+        }
+      ],
+      "candidateFor": [],
+      "theme": "Organoids & cell models",
+      "role": "used",
+      "x": 1722,
+      "y": 2470
+    }
+  ],
+  "themes": [
+    {
+      "name": "Neuroinflammation & behaviour",
+      "icon": "🧠",
+      "x": 560,
+      "y": 405,
+      "rx": 535,
+      "ry": 350,
+      "tint": "#def7ed",
+      "accent": "#239777",
+      "dark": "#155d48"
+    },
+    {
+      "name": "Spatial brain transcriptomics",
+      "icon": "🧬",
+      "x": 1680,
+      "y": 330,
+      "rx": 480,
+      "ry": 310,
+      "tint": "#eee5ff",
+      "accent": "#8b5bd8",
+      "dark": "#6134a4"
+    },
+    {
+      "name": "Oxidative stress & ferroptosis",
+      "icon": "⚡",
+      "x": 2750,
+      "y": 375,
+      "rx": 445,
+      "ry": 333,
+      "tint": "#ffebf1",
+      "accent": "#d84e85",
+      "dark": "#9d2051"
+    },
+    {
+      "name": "Radiation & cognition",
+      "icon": "☢",
+      "x": 540,
+      "y": 1310,
+      "rx": 520,
+      "ry": 525,
+      "tint": "#fff0da",
+      "accent": "#df8c2d",
+      "dark": "#a45a0c"
+    },
+    {
+      "name": "Ocular & neurovascular",
+      "icon": "◉",
+      "x": 2765,
+      "y": 1400,
+      "rx": 510,
+      "ry": 560,
+      "tint": "#e7f1ff",
+      "accent": "#458edc",
+      "dark": "#205ca0"
+    },
+    {
+      "name": "Artificial gravity",
+      "icon": "↻",
+      "x": 760,
+      "y": 2166,
+      "rx": 482,
+      "ry": 329,
+      "tint": "#fff0df",
+      "accent": "#e99439",
+      "dark": "#a85c0f"
+    },
+    {
+      "name": "Organoids & cell models",
+      "icon": "◌",
+      "x": 1768,
+      "y": 2145,
+      "rx": 477,
+      "ry": 320,
+      "tint": "#f3eaff",
+      "accent": "#9b6fdf",
+      "dark": "#6d44aa"
+    },
+    {
+      "name": "Other related research",
+      "icon": "✦",
+      "x": 2792,
+      "y": 2220,
+      "rx": 435,
+      "ry": 270,
+      "tint": "#eef1f5",
+      "accent": "#8494a9",
+      "dark": "#506173"
+    }
+  ],
+  "width": 3300,
+  "height": 2780,
+  "cardW": 332,
+  "cardH": 226,
+  "totals": {
+    "papers": 30,
+    "datasets": 63,
+    "usedLinks": 63,
+    "candidateLinks": 33,
+    "followupLinks": 4
+  }
+}

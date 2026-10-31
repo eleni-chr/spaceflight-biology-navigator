@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="Explore public NASA OSDR biological research records across nine overlapping subject-topic filters.">
+  <meta name="theme-color" content="#173a70">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link rel="stylesheet" href="styles.css">
+  <title>All-record Explorer | Spaceflight Biology Navigator</title>
+  <style>
+    body{background:#f3f7fc}.atlasWrap{max-width:1320px;margin:28px auto;padding:0 18px 50px}.atlasHero{padding:34px;background:linear-gradient(115deg,#173a70,#266a8b);color:#fff;border-radius:20px}.atlasHero h2{font-size:clamp(27px,5vw,44px);margin:0 0 10px}.atlasHero p{line-height:1.65;max-width:82ch;margin:0}.atlasHero .heroStats{display:flex;gap:10px;flex-wrap:wrap;margin-top:19px}.heroStat{padding:8px 12px;border-radius:999px;background:#ffffff1c;border:1px solid #ffffff46;font-size:13px}.atlasNav{display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin:18px 0}.atlasNav a,.atlasNav span{background:#fff;border:1px solid #d8e4f1;border-radius:9px;padding:9px 12px;text-decoration:none;font-weight:650;color:#225e9a}.atlasNav .active{background:#eaf2fc;color:#173a70}.sectionCard{background:#fff;border:1px solid #dce6f2;border-radius:16px;padding:22px;margin-top:18px}.sectionCard h2{margin:0 0 8px;font-size:21px}.sectionIntro{color:#5b7086;line-height:1.55;margin:0 0 16px}.topicGrid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:11px}.topicCard{display:block;text-align:left;background:#fff;border:1px solid #d7e4f0;border-radius:12px;padding:15px;cursor:pointer;color:#203b59;min-height:120px}.topicCard:hover,.topicCard:focus-visible{border-color:#3c8dc2;box-shadow:0 3px 14px #1e548822;outline:none}.topicName{font-weight:750;font-size:15px;line-height:1.3}.topicCount{font-size:12px;color:#126d7b;font-weight:700;margin-top:8px}.topicDescription{font-size:12px;color:#627990;line-height:1.45;margin-top:5px}.notice{margin-top:13px;padding:13px 15px;border:1px solid #e9d19d;background:#fff8e9;border-radius:10px;line-height:1.55;color:#584823;font-size:13px}.controls{display:grid;grid-template-columns:minmax(240px,1fr) minmax(190px,.55fr) minmax(180px,.5fr) auto auto;gap:10px;align-items:center}.controls input,.controls select{min-width:0}.catalogStatus{color:#54708c;font-size:13px;margin:14px 0}.tableWrap{overflow:auto;max-height:70vh;border:1px solid #e0e8f1;border-radius:10px}.catalogTable{width:100%;border-collapse:collapse;font-size:13px}.catalogTable th,.catalogTable td{text-align:left;padding:12px;border-bottom:1px solid #e7edf4;vertical-align:top}.catalogTable thead th{position:sticky;top:0;background:#f5f9fe;color:#355774;z-index:1;white-space:nowrap}.catalogTable tbody th{min-width:110px;white-space:nowrap}.catalogTable a{color:#1769aa;font-weight:650}.recordTitle{font-weight:700;color:#1b3857;line-height:1.4}.pubTitle{margin-top:7px;line-height:1.4}.metadataLine{margin-top:5px;line-height:1.45;color:#56718a}.topicList{display:flex;flex-wrap:wrap;gap:5px;min-width:135px}.topicBadge{display:inline-block;background:#e9f4f4;border:1px solid #c6e2e3;border-radius:999px;padding:3px 7px;font-size:11px;color:#245b62;white-space:normal}.noTopic{color:#8291a1;font-size:12px;line-height:1.4}.recordDetails{margin-top:7px}.recordDetails summary{color:#1769aa;cursor:pointer;font-size:12px}.recordDescription{margin-top:6px;color:#536d85;line-height:1.5;white-space:normal;max-width:70ch}.catalogEmpty{padding:22px;color:#637a91;text-align:center}.catalogFoot{font-size:12px;color:#5b7086;line-height:1.6;margin-top:14px;overflow-wrap:anywhere}.catalogFoot code{font-size:11px}.smallLink{font-size:12px;margin-left:7px}@media(max-width:920px){.topicGrid{grid-template-columns:repeat(2,minmax(0,1fr))}.controls{grid-template-columns:1fr 1fr}.controls input{grid-column:1/-1}}@media(max-width:560px){.topicGrid{grid-template-columns:1fr}.atlasHero{padding:24px}.controls{grid-template-columns:1fr}.controls input{grid-column:auto}.sectionCard{padding:16px}.catalogTable th,.catalogTable td{padding:9px}}
+  </style>
+</head>
+<body>
+  <header class="masthead">
+    <div class="brand"><div class="mark" aria-hidden="true">✦</div><div><div class="eyebrow">Independent open-source project</div><h1 style="font-size:23px">Spaceflight Biology Navigator</h1></div></div>
+    <div class="identity">Not an official NASA product</div>
+  </header>
+  <main class="atlasWrap">
+    <nav class="atlasNav" aria-label="Project navigation">
+      <a href="index.html">Visual research map</a><span class="active">Explore all records</span>
+      <a href="brain-pilot.html">Curated Brain gap map</a>
+      <a href="about.html">Project, evidence &amp; methods</a>
+      <a href="https://science.nasa.gov/biological-physical/data/osdr/" target="_blank" rel="noopener noreferrer">About NASA OSDR ↗</a>
+    </nav>
+    <section class="atlasHero">
+      <h2>Space biology across NASA OSDR</h2>
+      <p>Explore every dataset record in the retrieved NASA OSDR Biological Data API snapshot, its available study and publication metadata, and nine overlapping research-topic filters. Topic suggestions come from metadata signals and can overlap.</p>
+      <div id="heroStats" class="heroStats" aria-live="polite"></div>
+    </section>
+    <section class="sectionCard" aria-labelledby="topicHeading">
+      <h2 id="topicHeading">Explore by research topic</h2>
+      <p class="sectionIntro">Select a lens to filter records. Counts show matches to terms in available study metadata; topics overlap, and a match is only a discovery signal.</p>
+      <div id="topicCards" class="topicGrid"></div>
+      <div id="topicNote" class="notice"></div>
+    </section>
+    <section class="sectionCard" aria-labelledby="catalogHeading">
+      <h2 id="catalogHeading">All Biological Data API records</h2>
+      <p class="sectionIntro">Search accessions, study and publication titles, authors, organisms, missions, assays, factors and source descriptions. NASA record links remain the authority for current metadata.</p>
+      <div class="controls">
+        <input id="catalogSearch" class="control search" type="search" aria-label="Search all OSDR biological dataset metadata" placeholder="Search studies, publications, organisms, missions…">
+        <select id="topicFilter" class="control" aria-label="Filter by research-topic lens"><option value="all">All research topics</option></select>
+        <select id="sourceFilter" class="control" aria-label="Filter by catalog source"><option value="all">All source collections</option></select>
+        <button id="catalogClear" class="toolbtn">Clear filters</button>
+        <button id="catalogDownload" class="toolbtn primary">Download filtered CSV</button>
+      </div>
+      <p id="catalogStatus" class="catalogStatus" aria-live="polite"></p>
+      <div id="catalogMessage" class="notice" hidden></div>
+      <div class="tableWrap">
+        <table class="catalogTable">
+          <thead><tr><th scope="col">Accession</th><th scope="col">Study and publication</th><th scope="col">Organism and experimental metadata</th><th scope="col">Suggested research topics</th></tr></thead>
+          <tbody id="catalogRows"></tbody>
+        </table>
+        <div id="catalogEmpty" class="catalogEmpty" hidden>No records match these filters.</div>
+      </div>
+      <p id="catalogSource" class="catalogFoot"></p>
+    </section>
+  </main>
+  <script src="data/seed.js"></script>
+  <script src="data/catalog.js"></script>
+  <script src="catalog-app.js"></script>
+</body>
+</html>
+
+

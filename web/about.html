@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="Public project scope, data coverage, evidence policy, and methods for Spaceflight Biology Navigator.">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <title>About Spaceflight Biology Navigator</title>
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    body{background:#f3f7fc}.aboutWrap{max-width:970px;margin:28px auto;padding:0 18px 45px}.aboutHero{padding:38px;background:linear-gradient(115deg,#173a70,#266a8b);color:white;border-radius:22px}.aboutHero h2{font-size:clamp(28px,5vw,46px);margin:0 0 9px}.aboutHero p{line-height:1.6;max-width:70ch}.aboutNav{display:flex;gap:10px;flex-wrap:wrap;margin:18px 0}.aboutNav a{background:#fff;border:1px solid #d8e4f1;border-radius:9px;padding:9px 12px;text-decoration:none;font-weight:650;color:#225e9a}.contentCard{background:white;border:1px solid #dce6f2;border-radius:17px;padding:26px;margin-top:18px;line-height:1.7}.contentCard h2{margin:0 0 12px;font-size:21px}.contentCard ul{padding-left:24px}.status{padding:15px;border:1px solid #edce9a;background:#fff7e8;border-radius:10px;overflow-wrap:anywhere}.status p:last-child{margin-bottom:0}
+  </style>
+</head>
+<body>
+  <header class="masthead"><div class="brand"><div class="mark" aria-hidden="true">✦</div><div><div class="eyebrow">Independent open-source project</div><h1 style="font-size:23px">Spaceflight Biology Navigator</h1></div></div><div class="identity">Not an official NASA product</div></header>
+  <main class="aboutWrap">
+    <nav class="aboutNav" aria-label="Project navigation"><a href="index.html">Visual research map</a><a href="explorer.html">Explore all records</a><a href="brain-pilot.html">Curated Brain gap map</a></nav>
+    <section class="aboutHero"><h2>Map the evidence across space biology.</h2><p>Spaceflight Biology Navigator brings together NASA OSDR study records and publication metadata, then organizes them into public research topics. Its long-term purpose is to make evidence-backed findings, unresolved questions, and candidate datasets easier to discover.</p></section>
+    <section class="contentCard"><h2>What this release covers</h2><div class="status"><p id="apiCoverage">Loading the bundled Biological Data API snapshot details…</p><p>The homepage is a network map linking the full bundled dataset snapshot to overlapping metadata topics. Its topic links and publication-title leads support screening; the evidence-linked graph remains a curated Brain case study, not exhaustive coverage of every topic.</p><p>Topic labels in the visual map are overlapping metadata-based suggestions. Record-level evidence strings show why each suggestion appeared.</p></div><p>The API snapshot contains one aggregate dataset record per accession. A publication title appearing in NASA metadata is a screening lead; it does not prove that the publication used every assay or sample in the accession.</p></section>
+    <section class="contentCard"><h2>How to use the visual research map</h2><p>Each dot is one dataset record. Lines connect records to the topics triggered by their available metadata, and a shared record can connect several topic nodes. Select a topic or record to inspect match terms and source metadata. Publication titles link to the corresponding OSDR record so readers can check the citation and relationship directly. This is a screening map, not a completed publication inventory or evidence-backed gap claim.</p></section>
+    <section class="contentCard"><h2>How to read the curated Brain gap map</h2><ul><li><strong>Mint study cards</strong> summarize a reported finding and an open question.</li><li><strong>Lavender study cards</strong> identify later analyses linked to earlier work.</li><li><strong>Blue dataset nodes and solid teal edges</strong> denote documented dataset use, with evidence notes in the study panel.</li><li><strong>Orange-outlined dataset nodes and dashed orange edges</strong> are candidate datasets for a question, not validated experiments.</li><li><strong>Purple arrows</strong> show documented relationships between later papers and earlier questions.</li><li><strong>Pastel background clusters</strong> indicate research themes, not quality or strength of evidence.</li></ul></section>
+    <section class="contentCard"><h2>Sources and boundaries</h2><p>The bundled snapshot covers the NASA OSDR Biological Data API, which indexes GeneLab and ALSDA. OSDR also exposes separate services for environmental telemetry, radiation data, biospecimens, microbial cultures, and other data; those sources need dedicated ingestion and coverage work.</p><p>References: <a href="https://visualization.osdr.nasa.gov/biodata/api/" target="_blank" rel="noopener noreferrer">NASA Biological Data API</a> · <a href="https://science.nasa.gov/biological-physical/data/osdr/" target="_blank" rel="noopener noreferrer">NASA OSDR overview</a> · <a href="https://visualization.osdr.nasa.gov/" target="_blank" rel="noopener noreferrer">NASA OSDR portal</a>.</p><p>NASA datasets and third-party publications retain their original attribution and terms. Spaceflight Biology Navigator is independent and does not claim NASA endorsement.</p></section>
+  </main>
+  <script src="data/catalog.js"></script>
+  <script>
+    const snapshot = window.SPACEBIO_CATALOG || {};
+    const apiCount = Number(snapshot.total_ids_found || 0).toLocaleString();
+    const metadataCount = Number(snapshot.metadata_record_count || 0).toLocaleString();
+    const publicationCount = Number(snapshot.publication_title_count || 0).toLocaleString();
+    document.querySelector('#apiCoverage').textContent = `Bundled API snapshot: ${apiCount} dataset records, ${metadataCount} with aggregate study metadata, and ${publicationCount} with a publication title. Retrieved ${snapshot.retrieved_utc || 'date unavailable'}.`;
+  </script>
+</body>
+</html>

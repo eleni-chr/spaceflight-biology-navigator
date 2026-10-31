@@ -1,0 +1,36 @@
+name: Bug report
+description: Report a problem with the website or repository tools.
+title: "[Bug] "
+body:
+  - type: markdown
+    attributes:
+      value: Please report software behavior here. Use the research record form for corrections to scientific content or evidence.
+  - type: textarea
+    id: problem
+    attributes:
+      label: What happened?
+      description: Describe the problem and what you expected to happen.
+    validations:
+      required: true
+  - type: textarea
+    id: reproduce
+    attributes:
+      label: Steps to reproduce
+      description: Include the page, search/filter settings, or command that led to the problem.
+      placeholder: 1. Open … 2. Select … 3. Observe …
+    validations:
+      required: true
+  - type: input
+    id: environment
+    attributes:
+      label: Environment
+      description: Browser and version, operating system, or Python version as relevant.
+    validations:
+      required: false
+  - type: textarea
+    id: details
+    attributes:
+      label: Additional details
+      description: Add a screenshot or error message if it helps explain the issue. Do not attach private or controlled-access data.
+    validations:
+      required: false

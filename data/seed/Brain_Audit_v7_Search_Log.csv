@@ -1,0 +1,8 @@
+﻿Stage,Search/endpoint,Outcome,Source
+Scope,Existing v6 63-accession inventory grouped in 27 experiment families,"Defined auditable accession set, not all-OSDR census",local prior inventory
+Official NASA archive,"OSDR Publications Archive — original 122, OSDR-enabled 142, AI/ML 31 categories",Found archival associations; incomplete for later 2026 studies,https://science.nasa.gov/reference/osdr-publications-archive/
+Individual study pages,"NASA OSDR accession page title, source accession, Publications, Related Studies","Confirmed OSD-817/Peng, RR8 GEO, SANS family; other pages missing publication fields",https://osdr.nasa.gov/bio/repo/search
+Bibliographic sources,"PubMed, PMC, journal articles by exact title, OSD identifier, GEO series and mission","Confirmed Rienecker, Peng, both Carmignani papers and Grandke series",https://pubmed.ncbi.nlm.nih.gov/
+Targeted unresolved,"OSD-525,561,562,563,564,612,618,640,815-818,927-932,1005",Six accessions remain without attributable paper; seven have indirect or source-family relationships,https://osdr.nasa.gov/bio/
+Completeness limitation,NASA OSDR catalogue API and full enumerated accession export,Bulk catalogue enumeration unavailable in this runtime; field-wide completeness NOT established,https://api.nasa.gov/
+Ancillary conference output,"NASA EPSCoR 2025 poster referencing OSD-525, 564, 612",Secondary reuse reported in poster; not counted as an original or peer-reviewed publication,https://nasa.epscorspo.nevada.edu/wp-content/uploads/2025/04/Moshi_poster.pdf

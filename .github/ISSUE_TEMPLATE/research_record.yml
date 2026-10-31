@@ -1,0 +1,81 @@
+name: Research record correction or addition
+description: Propose a change to a publication, dataset, finding, gap, or scientific relationship.
+title: "[Evidence] "
+body:
+  - type: markdown
+    attributes:
+      value: >-
+        Give public source URLs and explain what each source supports. A keyword match alone does not establish dataset reuse or sample-level feasibility. Do not attach copyrighted full text or restricted data.
+  - type: input
+    id: paper
+    attributes:
+      label: Publication
+      description: Paper title and DOI, PMID, or stable public URL. Enter “not applicable” for a dataset-only correction.
+    validations:
+      required: true
+  - type: input
+    id: accession
+    attributes:
+      label: OSDR accession
+      description: Include the OSD identifier, if relevant.
+      placeholder: OSD-123
+    validations:
+      required: false
+  - type: checkboxes
+    id: topic_lenses
+    attributes:
+      label: Relevant research topics
+      description: Select every topic that fits; categories can overlap.
+      options:
+        - label: Animals and model organisms
+        - label: AI and computational methods
+        - label: Physiology and archive data
+        - label: Reproductive health
+        - label: Human spaceflight health
+        - label: Microbial systems
+        - label: Multi-omics
+        - label: Plant biology
+        - label: Radiation and dosimetry
+  - type: dropdown
+    id: relationship
+    attributes:
+      label: Relationship being proposed
+      options:
+        - Direct publication–dataset citation
+        - Reconstructed source-data relationship
+        - Candidate dataset for an open question
+        - Later publication addresses an earlier question
+        - Correction to an existing record
+        - Other
+    validations:
+      required: true
+  - type: textarea
+    id: claim
+    attributes:
+      label: Proposed claim or correction
+      description: State the record and relationship you want added or changed.
+    validations:
+      required: true
+  - type: textarea
+    id: evidence
+    attributes:
+      label: Evidence and source URLs
+      description: Link the relevant public records and identify the page, section, table, or metadata field that supports the claim.
+    validations:
+      required: true
+  - type: textarea
+    id: limitations
+    attributes:
+      label: Limitations or counterevidence
+      description: Note uncertainty, alternative explanations, missing sample-level details, or assay/design incompatibilities.
+    validations:
+      required: true
+  - type: checkboxes
+    id: publication_rights
+    attributes:
+      label: Sharing and evidence checks
+      options:
+        - label: I have not included controlled-access, personal, confidential, or copyrighted full-text material.
+          required: true
+        - label: I have distinguished a documented relationship from a proposed research possibility.
+          required: true

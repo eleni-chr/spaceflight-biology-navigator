@@ -1,0 +1,26 @@
+name: Quality checks
+on:
+  push:
+  pull_request:
+permissions:
+  contents: read
+jobs:
+  tests:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Validate graph
+        run: python -m spacebio.cli validate
+      - name: Verify generated seed
+        run: python -m spacebio.cli build --check
+      - name: Run tests
+        run: python -m unittest discover -s tests -v
+      - name: Parse JavaScript
+        run: node --check web/app.js && node --check web/catalog-app.js && node --check web/map.js && node --check web/data/seed.js && node --check web/data/catalog.js
+

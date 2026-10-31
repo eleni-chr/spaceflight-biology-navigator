@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="An interactive map connecting NASA OSDR biological research records through overlapping metadata topic matches.">
+  <meta name="theme-color" content="#102b4d">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link rel="stylesheet" href="map.css">
+  <title>Spaceflight Biology Navigator | Interactive Research Map</title>
+</head>
+<body>
+  <header class="siteHeader">
+    <a class="brand" href="index.html" aria-label="Spaceflight Biology Navigator home"><span class="brandMark" aria-hidden="true">✦</span><span><small>Independent public research tool</small><strong>Spaceflight Biology Navigator</strong></span></a>
+    <span class="officialNote">Not an official NASA product</span>
+  </header>
+  <nav class="projectNav" aria-label="Project navigation">
+    <a class="active" href="index.html" aria-current="page">Visual research map</a>
+    <a href="explorer.html">Explore all records</a>
+    <a href="brain-pilot.html">Brain evidence case study</a>
+    <a href="about.html">About &amp; methods</a>
+    <a href="https://science.nasa.gov/biological-physical/data/osdr/" target="_blank" rel="noopener noreferrer">NASA OSDR ↗</a>
+  </nav>
+  <main class="pageWrap">
+    <section class="hero">
+      <div class="heroCopy">
+        <div class="eyebrow">NASA OSDR · Biological Data API snapshot</div>
+        <h1>Space biology research, mapped</h1>
+        <p>Explore how public study records connect across nine overlapping research topics. Select a topic or a dataset to inspect the metadata and follow its NASA source record.</p>
+      </div>
+      <div class="heroMetrics" id="heroMetrics" aria-label="Snapshot summary"></div>
+    </section>
+    <section class="readingKey" aria-label="How to read this map">
+      <span class="keyDot" aria-hidden="true"></span>
+      <p><strong>How to read it:</strong> each dot is one OSDR dataset record; a line connects it to every topic triggered by available metadata. Topics can overlap. These links are discovery signals, not confirmed paper-to-dataset relationships or verified research gaps.</p>
+    </section>
+    <section class="workspace" aria-label="Interactive research map and details">
+      <div class="mapColumn">
+        <div class="toolbar">
+          <label class="searchBox"><span class="visuallyHidden">Search the map</span><input id="mapSearch" type="search" placeholder="Search records, publications, organisms…" autocomplete="off"></label>
+          <label class="topicSelectLabel"><span class="visuallyHidden">Focus a research topic</span><select id="topicSelect" aria-label="Focus a research topic"><option value="">All topics</option></select></label>
+          <button type="button" class="controlButton" id="clearButton">Clear</button>
+          <div class="zoomControls" aria-label="Map controls"><button type="button" id="zoomOut" aria-label="Zoom out">−</button><button type="button" id="zoomIn" aria-label="Zoom in">+</button><button type="button" id="zoomReset">Reset view</button></div>
+        </div>
+        <p class="mapStatus" id="mapStatus" aria-live="polite"></p>
+        <div class="mapFrame" id="mapFrame">
+          <svg id="atlasMap" viewBox="0 0 1100 820" role="group" aria-label="Network map of nine research topics and NASA OSDR dataset records">
+            <defs><pattern id="dotGrid" width="32" height="32" patternUnits="userSpaceOnUse"><circle cx="2" cy="2" r="1" fill="#dbe6f1"></circle></pattern></defs>
+            <rect class="mapBackdrop" x="0" y="0" width="1100" height="820" fill="url(#dotGrid)"></rect>
+            <g id="networkTransform"><g id="topicConnections"></g><g id="topicEdges"></g><g id="recordNodes"></g><g id="topicNodes"></g></g>
+          </svg>
+          <div class="mapHint">Drag to pan · Scroll or use +/− to zoom · Select a node for details</div>
+        </div>
+        <div class="legend" aria-label="Map legend"><span><i class="legendTopic"></i>Research topic</span><span><i class="legendRecord"></i>OSDR dataset record</span><span><i class="legendLine"></i>Metadata topic match</span><span><i class="legendOverlap"></i>Shared records between topics</span></div>
+      </div>
+      <aside class="detailsPanel" aria-label="Map details">
+        <div class="panelHeader"><div><span class="panelEyebrow">Explore the map</span><h2 id="detailTitle">All topics</h2></div><span class="panelCount" id="detailCount"></span></div>
+        <div class="panelBody" id="detailBody" aria-live="polite"></div>
+      </aside>
+    </section>
+    <footer class="pageFooter"><p id="snapshotNote"></p><p>Use the <a href="explorer.html">record explorer</a> for full metadata search and CSV export. Read <a href="about.html">the methods and data boundaries</a> before interpreting topic patterns.</p></footer>
+  </main>
+  <script src="data/catalog.js"></script>
+  <script src="map.js"></script>
+</body>
+</html>
