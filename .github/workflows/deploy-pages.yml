@@ -23,7 +23,7 @@ jobs:
         with:
           python-version: '3.12'
       - name: Validate research graph
-        run: python -m spacebio.cli validate && python -m spacebio.cli build --check
+        run: python -m spacebio.cli validate && python -m spacebio.cli build --check && python -m spacebio.cli build-gaps --check
       - name: Configure Pages
         uses: actions/configure-pages@v5
       - name: Upload site

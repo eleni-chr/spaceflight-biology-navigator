@@ -2,6 +2,9 @@
 const data = window.SPACEBIO_CATALOG || {};
 const records = Array.isArray(data.datasets) ? data.datasets : [];
 const topics = Array.isArray(data.topics) ? data.topics : [];
+const gapData = window.SPACEBIO_GAP_HYPOTHESES || {};
+const gapHypotheses = Array.isArray(gapData.hypotheses) ? gapData.hypotheses : [];
+const hypothesisByTopic = new Map(gapHypotheses.map(item => [item.topic_id, item]));
 const svgNS = 'http://www.w3.org/2000/svg';
 const width = 1100, height = 820, centerX = width / 2, centerY = 410, orbit = 270;
 const palette = ['#198b7d','#4289bf','#d48d32','#966ac5','#2e9b9d','#5282b6','#d26d55','#6f9b58','#6d7dc0'];
@@ -10,22 +13,32 @@ const byTopic = new Map();
 const metrics = document.querySelector('#heroMetrics');
 const svg = document.querySelector('#atlasMap');
 const transformGroup = document.querySelector('#networkTransform');
+const gapTransform = document.querySelector('#gapTransform');
 const edgeLayer = document.querySelector('#topicEdges');
 const connectionLayer = document.querySelector('#topicConnections');
 const recordLayer = document.querySelector('#recordNodes');
 const topicLayer = document.querySelector('#topicNodes');
+const gapConnectionLayer = document.querySelector('#gapConnections');
+const gapLayer = document.querySelector('#gapNodes');
 const searchInput = document.querySelector('#mapSearch');
 const topicSelect = document.querySelector('#topicSelect');
 const status = document.querySelector('#mapStatus');
 const panelTitle = document.querySelector('#detailTitle');
 const panelCount = document.querySelector('#detailCount');
 const panelBody = document.querySelector('#detailBody');
+const gapModeButton = document.querySelector('#gapModeButton');
+const topicModeButton = document.querySelector('#topicModeButton');
+const mapLegend = document.querySelector('#mapLegend');
+const mapHint = document.querySelector('#mapHint');
 let activeTopic = '';
 let compareTopic = '';
 let selectedRecord = '';
 let query = '';
+let mapMode = 'gaps';
 let view = {x:0,y:0,s:1};
 let drag = null;
+const candidateRecordsByTopic = new Map();
+const gapPointForTopic = new Map();
 
 function svgEl(tag, attrs, parent) {
   const node = document.createElementNS(svgNS, tag);
@@ -143,6 +156,79 @@ if (records.some(record => !(memberships.get(record.accession) || []).length)) {
   svgText(topicLayer,unmatched.toLocaleString()+' records without a topic match',{class:'topicNameSvg',x:982,y:790,'text-anchor':'middle'});
 }
 
+function leadScore(record) {
+  return (record.title ? 3 : 0) + (record.study_title ? 2 : 0) + (record.publication_title ? 3 : 0) +
+    (record.organism ? 2 : 0) + (record.assay_type ? 3 : 0) + (record.factors ? 1 : 0) +
+    (record.mission ? 1 : 0) + (record.description ? 1 : 0);
+}
+function leadRecords(topicId) {
+  return records.filter(record => (memberships.get(record.accession) || []).includes(topicId))
+    .sort((a,b) => leadScore(b) - leadScore(a) || a.accession.localeCompare(b.accession,undefined,{numeric:true}));
+}
+function wrappedLines(value, maxChars, maxLines) {
+  const words = String(value || '').split(/\s+/).filter(Boolean);
+  const lines = []; let line = '';
+  for (const word of words) {
+    const next = (line + ' ' + word).trim();
+    if (next.length > maxChars && line) { lines.push(line); line = word; }
+    else line = next;
+  }
+  if (line) lines.push(line);
+  if (lines.length > maxLines) {
+    lines.length = maxLines;
+    lines[maxLines - 1] = lines[maxLines - 1].replace(/[.,;:]?$/, '…');
+  }
+  return lines;
+}
+function buildGapMap() {
+  gapLayer.replaceChildren(); gapConnectionLayer.replaceChildren();
+  const ordered = topics.map(topic => ({topic,hypothesis:hypothesisByTopic.get(topic.id)})).filter(item => item.hypothesis);
+  for (const [index,item] of ordered.entries()) {
+    const {topic,hypothesis} = item;
+    const column = index % 3, row = Math.floor(index / 3);
+    const x = 18 + column * 362, y = 10 + row * 272;
+    const w = 344;
+    const leads = leadRecords(topic.id);
+    candidateRecordsByTopic.set(topic.id, leads);
+    gapPointForTopic.set(topic.id,{x:x+w/2,y:y+122});
+
+    svgEl('rect',{class:'gapClusterBackdrop','data-topic':topic.id,x:x,y:y,width:w,height:252,rx:12},gapLayer);
+    const questionGroup = svgEl('g',{class:'gapQuestion',role:'button',tabindex:'0','data-topic':topic.id,'aria-label':'Candidate research question for '+topic.name+': '+hypothesis.question},gapLayer);
+    svgEl('rect',{class:'gapQuestionCard',x:x+7,y:y+7,width:w-14,height:104,rx:9,stroke:topic.color},questionGroup);
+    svgEl('circle',{class:'gapBadge',cx:x+22,cy:y+24,r:5,fill:topic.color},questionGroup);
+    svgText(questionGroup,topic.name,{class:'gapTopicTitle',x:x+34,y:y+28});
+    svgText(questionGroup,'ANALYST-INFERRED QUESTION',{class:'gapProvenance',x:x+w-15,y:y+27,'text-anchor':'end'});
+    const lines = wrappedLines(hypothesis.question,48,4);
+    const questionText = svgEl('text',{class:'gapQuestionText',x:x+17,y:y+50},questionGroup);
+    lines.forEach((line,lineIndex) => {
+      const span=svgEl('tspan',{x:x+17,dy:lineIndex===0?'0':'14'},questionText); span.textContent=line;
+    });
+    questionGroup.addEventListener('click',event=>{event.stopPropagation();setTopic(topic.id);});
+    questionGroup.addEventListener('keydown',event=>{if(event.key==='Enter'||event.key===' '){event.preventDefault();setTopic(topic.id);}});
+
+    const matchedLeads = query ? leads.filter(record=>recordMatches(record)) : [];
+    const visibleLeads = matchedLeads.length ? matchedLeads.slice(0,3) : leads.slice(0,3);
+    if (!visibleLeads.length) {
+      svgText(gapLayer,'No matching records in this snapshot',{class:'gapEmpty',x:x+15,y:y+143});
+    }
+    visibleLeads.forEach((record,leadIndex)=>{
+      const rowY=y+119+leadIndex*42;
+      const edge = svgEl('path',{class:'gapEdge',d:'M'+(x+w/2)+' '+(y+111)+' C'+(x+w/2)+' '+(rowY-9)+' '+(x+12)+' '+(rowY-7)+' '+(x+12)+' '+(rowY+15)},gapConnectionLayer);
+      edge.dataset.topic=topic.id; edge.dataset.record=record.accession;
+      const group=svgEl('g',{class:'gapCandidate',role:'button',tabindex:'0','data-topic':topic.id,'data-record':record.accession,'aria-label':record.accession+', '+(record.title||record.study_title||'OSDR record')},gapLayer);
+      svgEl('rect',{class:'gapCandidateCard',x:x+7,y:rowY,width:w-14,height:36,rx:7},group);
+      svgText(group,record.accession,{class:'gapAccession',x:x+15,y:rowY+15});
+      const title=String(record.title||record.study_title||'Untitled OSDR record');
+      svgText(group,title.length>43?title.slice(0,42).trimEnd()+'…':title,{class:'gapCandidateTitle',x:x+77,y:rowY+14});
+      const metadata=[record.organism,record.assay_type,record.mission].filter(Boolean).join(' · ');
+      svgText(group,metadata.length>48?metadata.slice(0,47).trimEnd()+'…':(metadata||'Metadata details unavailable'),{class:'gapCandidateMeta',x:x+77,y:rowY+28});
+      group.addEventListener('click',event=>{event.stopPropagation();selectedRecord=record.accession;renderPanel();renderFocus();});
+      group.addEventListener('keydown',event=>{if(event.key==='Enter'||event.key===' '){event.preventDefault();selectedRecord=record.accession;renderPanel();renderFocus();}});
+    });
+  }
+}
+buildGapMap();
+
 function recordMatches(record) {
   if (!query) return true;
   const fields = [record.accession,record.title,record.study_title,record.publication_title,record.publication_authors,record.organism,record.mission,record.assay_type,record.assay_platform,record.factors,record.description,record.project_type].concat(Object.values(record.topic_evidence || {}));
@@ -156,7 +242,37 @@ function visibleRecords() {
     return recordMatches(record);
   });
 }
+function renderGapFocus() {
+  const includedTopics = new Set();
+  let visibleLeads = 0;
+  for (const topic of topics) {
+    const hypothesis = hypothesisByTopic.get(topic.id);
+    if (!hypothesis) continue;
+    const leads = candidateRecordsByTopic.get(topic.id) || [];
+    const topicTextMatches = !query || [topic.name,topic.description,hypothesis.question,hypothesis.basis].filter(Boolean).join(' ').toLocaleLowerCase().includes(query);
+    const leadMatches = leads.filter(record=>!query||recordMatches(record));
+    const topicIncluded = (!activeTopic||activeTopic===topic.id) && (!query||topicTextMatches||leadMatches.length>0);
+    if (topicIncluded) { includedTopics.add(topic.id); visibleLeads += query&&!topicTextMatches?Math.min(3,leadMatches.length):Math.min(3,leads.length); }
+    for (const node of gapLayer.querySelectorAll('[data-topic="'+topic.id+'"]')) {
+      node.style.display=topicIncluded?'':'none';
+    }
+    for (const node of gapConnectionLayer.querySelectorAll('[data-topic="'+topic.id+'"]')) {
+      const record=recordById.get(node.dataset.record);
+      node.style.display=topicIncluded&&(!query||topicTextMatches||recordMatches(record))?'':'none';
+    }
+    for (const node of gapLayer.querySelectorAll('.gapCandidate[data-topic="'+topic.id+'"]')) {
+      const record=recordById.get(node.dataset.record);
+      node.style.display=topicIncluded&&(!query||topicTextMatches||recordMatches(record))?'':'none';
+      node.classList.toggle('selected',node.dataset.record===selectedRecord);
+    }
+  }
+  const selected=activeTopic?byTopic.get(activeTopic):null;
+  status.textContent=selected
+    ? selected.name+' · candidate question and '+visibleLeads.toLocaleString()+' metadata-based dataset leads shown'
+    : includedTopics.size.toLocaleString()+' candidate research questions · '+visibleLeads.toLocaleString()+' dataset leads shown'+(query?' · search: “'+query+'”':'');
+}
 function renderFocus() {
+  if(mapMode==='gaps'){renderGapFocus();return;}
   const visible = new Set(visibleRecords().map(record => record.accession));
   for (const node of recordLayer.querySelectorAll('.recordNode')) {
     const included = visible.has(node.dataset.record);
@@ -196,7 +312,10 @@ function renderFocus() {
 function setTopic(id) {
   activeTopic = id; compareTopic = ''; selectedRecord = '';
   topicSelect.value = id; renderPanel(); renderFocus();
-  if (id) focusPoint(byTopic.get(id).x,byTopic.get(id).y,1.26);
+  if (id) {
+    const point=mapMode==='gaps'?gapPointForTopic.get(id):byTopic.get(id);
+    if(point)focusPoint(point.x,point.y,1.26);
+  }
 }
 function el(tag, className, value) {
   const node = document.createElement(tag);
@@ -214,7 +333,7 @@ function resultButton(record) {
   const title=el('span','',record.title || record.study_title || 'Untitled record');
   const detail=el('small','',[record.organism,record.mission,record.assay_type].filter(Boolean).join(' · '));
   button.append(accession,title,detail);
-  button.addEventListener('click',()=>{ selectedRecord=record.accession; renderPanel(); renderFocus(); const point=pointForRecord.get(record.accession); if(point) focusPoint(point.x,point.y,1.7); });
+  button.addEventListener('click',()=>{ selectedRecord=record.accession; renderPanel(); renderFocus(); const point=pointForRecord.get(record.accession); if(point&&mapMode==='topics') focusPoint(point.x,point.y,1.7); });
   return button;
 }
 function getTitleLeads(rows) {
@@ -247,13 +366,35 @@ function addTopicIndex(parent) {
 }
 function renderTopicPanel(topic) {
   const rows=records.filter(record=>(memberships.get(record.accession)||[]).includes(topic.id));
+  const hypothesis=hypothesisByTopic.get(topic.id);
   panelTitle.textContent=topic.name;
   panelCount.textContent=(compareTopic ? visibleRecords().length.toLocaleString()+' shared metadata matches' : rows.length.toLocaleString()+' metadata matches');
   panelBody.replaceChildren();
   panelBody.append(el('p','',topic.description || ''));
+  if(hypothesis) {
+    panelBody.append(el('h3','', 'Candidate gap hypothesis'));
+    panelBody.append(el('div','gapHypothesisPanel',hypothesis.question));
+    panelBody.append(el('p','snapshotLine',hypothesis.basis));
+    if(hypothesis.source) {
+      const source=sourceLink(hypothesis.source.url,'Read source context: '+hypothesis.source.title+' ('+hypothesis.source.year+')');
+      if(source)panelBody.append(source);
+    }
+    panelBody.append(el('div','noticeBox','This is an analyst-inferred screening hypothesis, not a verified claim that the question is unresolved. Dataset leads are selected by topic metadata and ordered by metadata completeness, not scientific suitability. They have not passed sample-level feasibility review.'));
+    const leads=candidateRecordsByTopic.get(topic.id)||[];
+    panelBody.append(el('h3','', 'Potential OSDR dataset leads'));
+    if(leads.length) {
+      for(const record of leads.slice(0,5)) {
+        const item=el('div','leadRow'); item.append(resultButton(record));
+        const link=sourceLink(record.record_url,'Open OSDR record');
+        if(link)item.append(link);
+        panelBody.append(item);
+      }
+      if(leads.length>5)panelBody.append(el('p','snapshotLine','Showing 5 of '+leads.length.toLocaleString()+' metadata-matched records; open the record explorer for the full set.'));
+    } else panelBody.append(el('p','snapshotLine','No records in this snapshot match this topic lens.'));
+  }
   panelBody.append(el('div','noticeBox','A topic match reflects terms or source labels in available OSDR metadata. It is a discovery aid, not a reviewed scientific classification.'));
   const prompts=topic.research_prompts || [];
-  if(prompts.length) {
+  if(prompts.length&&!hypothesis) {
     panelBody.append(el('h3','', 'Candidate literature-review direction'));
     for(const prompt of prompts) panelBody.append(el('div','promptBox',prompt));
   }
@@ -321,9 +462,18 @@ function renderRecordPanel(record) {
   panelBody.append(el('div','noticeBox','The metadata link does not establish that the listed publication used every sample, assay, or measurement in this record. Follow the source and paper to verify the relationship.'));
 }
 function renderDefaultPanel() {
-  const filtered=visibleRecords(); panelTitle.textContent='All topics'; panelCount.textContent=records.length.toLocaleString()+' records'; panelBody.replaceChildren();
-  panelBody.append(el('p','', 'This network brings the bundled OSDR dataset records into one view. Topic nodes are linked to records whenever the snapshot metadata triggers a topic rule.'));
-  panelBody.append(el('div','noticeBox','A shared record links multiple topics. The map shows metadata overlap; it does not assess publication quality, prove a research gap, or determine whether a dataset can answer a question.'));
+  const filtered=visibleRecords();
+  panelTitle.textContent=mapMode==='gaps'?'Gap hypotheses & dataset leads':'All topics';
+  panelCount.textContent=mapMode==='gaps'?gapHypotheses.length.toLocaleString()+' candidate questions':records.length.toLocaleString()+' records';
+  panelBody.replaceChildren();
+  if(mapMode==='gaps') {
+    panelBody.append(el('p','', 'This view connects one analyst-inferred research question in each topic lens to a short list of records matched by the same OSDR metadata rules used in the topic map.'));
+    panelBody.append(el('div','noticeBox','The question may not be an unresolved gap, and the linked records may not contain compatible samples, controls, or measurements. Leads are ordered by metadata completeness, not scientific suitability. Read each source and OSDR record before drawing a conclusion.'));
+    const brain=el('a','detailSource','Open the curated Brain evidence case study');brain.href='brain-pilot.html';panelBody.append(brain);
+  } else {
+    panelBody.append(el('p','', 'This network brings the bundled OSDR dataset records into one view. Topic nodes are linked to records whenever the snapshot metadata triggers a topic rule.'));
+    panelBody.append(el('div','noticeBox','A shared record links multiple topics. The map shows metadata overlap; it does not assess publication quality or whether a dataset can answer a question.'));
+  }
   if(query) {panelBody.append(el('h3','', 'Search matches'));addRecordList(panelBody,filtered,14);}
   addTopicIndex(panelBody);
   const unmatched=records.filter(record=>!(memberships.get(record.accession)||[]).length);
@@ -339,11 +489,35 @@ function renderPanel() {
   if(query) {renderSearchPanel(visibleRecords());return;}
   renderDefaultPanel();
 }
+function setLegend(mode) {
+  mapLegend.replaceChildren(); mapLegend.dataset.mode=mode;
+  const entries=mode==='gaps'
+    ? [['legendGap','Candidate research question'],['legendRecord','OSDR dataset lead'],['legendProposal','Metadata match · feasibility unreviewed']]
+    : [['legendTopic','Research topic'],['legendRecord','OSDR dataset record'],['legendLine','Metadata topic match'],['legendOverlap','Shared records between topics']];
+  for(const [className,label] of entries) {
+    const item=el('span','');const icon=el('i',className);item.append(icon,document.createTextNode(label));mapLegend.append(item);
+  }
+}
+function setMapMode(mode) {
+  mapMode=mode==='topics'?'topics':'gaps';
+  const gapView=mapMode==='gaps';
+  if(gapView)buildGapMap();
+  view={x:0,y:0,s:1};applyView();
+  gapModeButton.classList.toggle('active',gapView);gapModeButton.setAttribute('aria-pressed',String(gapView));
+  topicModeButton.classList.toggle('active',!gapView);topicModeButton.setAttribute('aria-pressed',String(!gapView));
+  transformGroup.style.display=gapView?'none':'';gapTransform.style.display=gapView?'':'none';
+  svg.setAttribute('aria-label',gapView?'Gap hypotheses and candidate NASA OSDR dataset leads across nine research topics':'Network map of nine research topics and NASA OSDR dataset records');
+  mapHint.textContent=gapView?'Select a question or dataset lead for details · Drag to pan · Scroll or use +/− to zoom':'Select a node for details · Drag to pan · Scroll or use +/− to zoom';
+  setLegend(mapMode);renderPanel();renderFocus();
+}
 function focusPoint(x,y,scale) {
   const next=Math.max(.75,Math.min(2.4,scale));
   view.s=next;view.x=centerX-x*next;view.y=centerY-y*next;applyView();
 }
-function applyView() { transformGroup.setAttribute('transform','translate('+view.x+' '+view.y+') scale('+view.s+')'); }
+function applyView() {
+  const transform='translate('+view.x+' '+view.y+') scale('+view.s+')';
+  transformGroup.setAttribute('transform',transform);gapTransform.setAttribute('transform',transform);
+}
 function svgPoint(clientX,clientY) {
   const point=svg.createSVGPoint();point.x=clientX;point.y=clientY;return point.matrixTransform(svg.getScreenCTM().inverse());
 }
@@ -353,7 +527,7 @@ function zoomAt(point,factor) {
 }
 svg.addEventListener('wheel',event=>{event.preventDefault();zoomAt(svgPoint(event.clientX,event.clientY),event.deltaY<0?1.12:.89);},{passive:false});
 svg.addEventListener('pointerdown',event=>{
-  if(event.target.closest('.topicNode,.recordNode')) return;
+  if(event.target.closest('.topicNode,.recordNode,.gapQuestion,.gapCandidate')) return;
   drag={x:event.clientX,y:event.clientY,viewX:view.x,viewY:view.y};svg.setPointerCapture(event.pointerId);svg.classList.add('dragging');
 });
 svg.addEventListener('pointermove',event=>{
@@ -365,6 +539,8 @@ document.querySelector('#zoomIn').addEventListener('click',()=>zoomAt({x:centerX
 document.querySelector('#zoomOut').addEventListener('click',()=>zoomAt({x:centerX,y:centerY},.84));
 document.querySelector('#zoomReset').addEventListener('click',()=>{view={x:0,y:0,s:1};applyView();});
 topicSelect.addEventListener('change',()=>setTopic(topicSelect.value));
-searchInput.addEventListener('input',()=>{query=searchInput.value.trim().toLocaleLowerCase();selectedRecord='';renderPanel();renderFocus();});
-document.querySelector('#clearButton').addEventListener('click',()=>{searchInput.value='';query='';activeTopic='';compareTopic='';selectedRecord='';topicSelect.value='';renderPanel();renderFocus();view={x:0,y:0,s:1};applyView();});
-renderPanel();renderFocus();
+gapModeButton.addEventListener('click',()=>setMapMode('gaps'));
+topicModeButton.addEventListener('click',()=>setMapMode('topics'));
+searchInput.addEventListener('input',()=>{query=searchInput.value.trim().toLocaleLowerCase();selectedRecord='';if(mapMode==='gaps')buildGapMap();renderPanel();renderFocus();});
+document.querySelector('#clearButton').addEventListener('click',()=>{searchInput.value='';query='';activeTopic='';compareTopic='';selectedRecord='';topicSelect.value='';if(mapMode==='gaps')buildGapMap();renderPanel();renderFocus();view={x:0,y:0,s:1};applyView();});
+setMapMode('gaps');

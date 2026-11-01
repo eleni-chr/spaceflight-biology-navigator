@@ -2,15 +2,16 @@
 
 ## Purpose
 
-Spaceflight Biology Navigator is an independent discovery project for public NASA OSDR research. The default site is an interactive visual network of all dataset records in the bundled Biological Data API snapshot and nine overlapping metadata topic lenses. The network shows metadata overlap and links each dataset node to the matching topic nodes; a separate explorer supports detailed search and export. The interactive evidence graph remains a clearly labeled Brain case study.
+Spaceflight Biology Navigator is an independent discovery project for public NASA OSDR research. The homepage opens to a cross-topic view of analyst-inferred research-question hypotheses and metadata-selected OSDR dataset leads. A second view shows the metadata network of all records and nine overlapping topic lenses; a separate explorer supports detailed search and export. The interactive evidence graph remains a clearly labeled Brain case study.
 
 ## Current implementation
 
-- `web/index.html`, `web/map.js`, and `web/map.css`: interactive cross-topic network map with dataset and topic nodes, shared-record overlaps, search, pan/zoom, and record detail panels.
+- `web/index.html`, `web/map.js`, and `web/map.css`: interactive cross-topic map with a gap-hypothesis/dataset-lead view and a complete metadata-network view, search, pan/zoom, source links, and record detail panels.
 - `web/explorer.html` and `web/catalog-app.js`: searchable all-record explorer with topic and source filters and filtered CSV export.
 - `web/brain-pilot.html` and `web/app.js`: interactive SVG evidence graph for the curated Brain case study, with study, dataset, and relationship detail panels.
 - `web/about.html`: snapshot counts, source coverage, topic-tagging method, and evidence limits.
 - `data/catalog/osdr_biodata_snapshot.json`: normalized API snapshot. `web/data/catalog.js` is its browser-ready representation.
+- `data/seed/cross_topic_gap_hypotheses.json`: analyst-inferred screening questions with source context where available. Dataset leads are generated dynamically from the snapshot's topic matches; they are not feasibility-reviewed.
 - `spacebio.osdr`: index and metadata normalization, topic definitions, and explainable keyword/source rules.
 - `spacebio.cli catalog`: refreshes the API index and aggregate metadata.
 - `spacebio.literature`: candidate discovery by accession; not a citation resolver.
@@ -24,6 +25,8 @@ Topic suggestions are generated from available metadata using transparent, overl
 ## Brain graph seed contract
 
 The current evidence graph is `data/seed/brain_pilot.json`, a separate curated JSON document with `scope`, `papers`, `datasets`, `themes`, canvas dimensions, and edge totals. The browser graph uses stable IDs, typed relationship lists, evidence text, and coordinates. A top-level `scope` object drives graph-page labels. The CLI validates internal references and totals before generating browser JavaScript. Those checks do not verify scientific claims.
+
+The cross-topic view does not reuse the Brain graph's paper-to-dataset relationships. It presents a question hypothesis and a short metadata-based accession list for each topic lens. It must remain labeled as screening until publication coverage and sample-level compatibility have been reviewed.
 
 ## Target research entities
 

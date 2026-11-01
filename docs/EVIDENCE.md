@@ -2,6 +2,10 @@
 
 ## This release
 
+The homepage now includes nine cross-topic screening hypotheses in `data/seed/cross_topic_gap_hypotheses.json`. These are analyst-inferred research directions, not claims that the questions are novel or remain unresolved. Source links give context for the directions where a relevant primary study was identified; they do not constitute a systematic literature search. The computational-methods question has no topic-specific source audit yet.
+
+The homepage's dataset leads are selected from the bundled OSDR metadata snapshot using the same topic-lens matches shown in the metadata network. The short list is ordered by how many aggregate metadata fields are populated, not by scientific relevance or fitness for a question. These are not scientific recommendations, verified paper–dataset relationships, or feasibility-reviewed experiments. A reader must inspect the study record and sample-level files before deciding whether a record can address a question. The generated `web/data/gap-hypotheses.js` file is built with `python -m spacebio.cli build-gaps`.
+
 The Brain seed comes from an earlier 63-accession working inventory and 30 literature records (including non-journal items). It is not an exhaustive literature audit; several links retain "carry forward" status from earlier review. The original audit exports and log are retained under `data/seed/`.
 
 The seed is not proof of novelty, data availability for all assays, functional relevance, paired animals, or the ability of any candidate dataset to resolve a gap.

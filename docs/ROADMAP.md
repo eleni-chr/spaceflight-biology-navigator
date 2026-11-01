@@ -6,6 +6,7 @@
 - [x] Current accession index and aggregate metadata for GeneLab/ALSDA.
 - [x] Nine overlapping subject-topic filters with record-level evidence strings.
 - [x] Interactive network map linking all snapshot records to nine overlapping topic lenses and showing shared metadata matches.
+- [x] Homepage gap-hypothesis view across the nine topic lenses with source context where available and metadata-selected dataset leads; labels explicitly remain screening-only.
 - [x] Topic-level review directions and publication-title leads for screening; these are not verified gaps.
 - [x] Search, source and topic filters, record links, descriptions, and filtered CSV export.
 - [x] Separate interactive Brain evidence-graph pilot and its source ledgers.

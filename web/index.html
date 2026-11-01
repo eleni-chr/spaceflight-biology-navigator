@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <meta name="description" content="An interactive map connecting NASA OSDR biological research records through overlapping metadata topic matches.">
+  <meta name="description" content="Explore candidate space-biology research questions and OSDR dataset leads, alongside an interactive topic metadata map.">
   <meta name="theme-color" content="#102b4d">
   <link rel="icon" type="image/svg+xml" href="favicon.svg">
   <link rel="stylesheet" href="map.css">
@@ -26,13 +26,13 @@
       <div class="heroCopy">
         <div class="eyebrow">NASA OSDR · Biological Data API snapshot</div>
         <h1>Space biology research, mapped</h1>
-        <p>Explore how public study records connect across nine overlapping research topics. Select a topic or a dataset to inspect the metadata and follow its NASA source record.</p>
+        <p>Explore candidate research questions across nine public topic areas and inspect NASA OSDR dataset records that may be worth assessing. Switch views to explore the full metadata network.</p>
       </div>
       <div class="heroMetrics" id="heroMetrics" aria-label="Snapshot summary"></div>
     </section>
     <section class="readingKey" aria-label="How to read this map">
       <span class="keyDot" aria-hidden="true"></span>
-      <p><strong>How to read it:</strong> each dot is one OSDR dataset record; a line connects it to every topic triggered by available metadata. Topics can overlap. These links are discovery signals, not confirmed paper-to-dataset relationships or verified research gaps.</p>
+      <p><strong>Evidence boundary:</strong> the gap view presents analyst-inferred screening hypotheses, with source context where available. Dashed links lead to records selected by topic metadata and ordered by metadata completeness; they do not show that a question is unanswered or that a dataset can answer it. Sample-level feasibility has not been reviewed.</p>
     </section>
     <section class="workspace" aria-label="Interactive research map and details">
       <div class="mapColumn">
@@ -42,16 +42,21 @@
           <button type="button" class="controlButton" id="clearButton">Clear</button>
           <div class="zoomControls" aria-label="Map controls"><button type="button" id="zoomOut" aria-label="Zoom out">−</button><button type="button" id="zoomIn" aria-label="Zoom in">+</button><button type="button" id="zoomReset">Reset view</button></div>
         </div>
+        <div class="mapModes" role="group" aria-label="Choose map view">
+          <button type="button" class="mapModeButton active" id="gapModeButton" aria-pressed="true">Gap hypotheses &amp; dataset leads</button>
+          <button type="button" class="mapModeButton" id="topicModeButton" aria-pressed="false">Topic metadata network</button>
+        </div>
         <p class="mapStatus" id="mapStatus" aria-live="polite"></p>
         <div class="mapFrame" id="mapFrame">
-          <svg id="atlasMap" viewBox="0 0 1100 820" role="group" aria-label="Network map of nine research topics and NASA OSDR dataset records">
+          <svg id="atlasMap" viewBox="0 0 1100 820" role="group" aria-label="Gap hypotheses and candidate NASA OSDR dataset leads across nine research topics">
             <defs><pattern id="dotGrid" width="32" height="32" patternUnits="userSpaceOnUse"><circle cx="2" cy="2" r="1" fill="#dbe6f1"></circle></pattern></defs>
             <rect class="mapBackdrop" x="0" y="0" width="1100" height="820" fill="url(#dotGrid)"></rect>
             <g id="networkTransform"><g id="topicConnections"></g><g id="topicEdges"></g><g id="recordNodes"></g><g id="topicNodes"></g></g>
+            <g id="gapTransform"><g id="gapConnections"></g><g id="gapNodes"></g></g>
           </svg>
-          <div class="mapHint">Drag to pan · Scroll or use +/− to zoom · Select a node for details</div>
+          <div class="mapHint" id="mapHint">Select a topic or dataset lead for details · Drag to pan · Scroll or use +/− to zoom</div>
         </div>
-        <div class="legend" aria-label="Map legend"><span><i class="legendTopic"></i>Research topic</span><span><i class="legendRecord"></i>OSDR dataset record</span><span><i class="legendLine"></i>Metadata topic match</span><span><i class="legendOverlap"></i>Shared records between topics</span></div>
+        <div class="legend" id="mapLegend" aria-label="Map legend"><span><i class="legendGap"></i>Candidate research question</span><span><i class="legendRecord"></i>OSDR dataset lead</span><span><i class="legendProposal"></i>Metadata-based lead · not feasibility checked</span></div>
       </div>
       <aside class="detailsPanel" aria-label="Map details">
         <div class="panelHeader"><div><span class="panelEyebrow">Explore the map</span><h2 id="detailTitle">All topics</h2></div><span class="panelCount" id="detailCount"></span></div>
@@ -61,6 +66,7 @@
     <footer class="pageFooter"><p id="snapshotNote"></p><p>Use the <a href="explorer.html">record explorer</a> for full metadata search and CSV export. Read <a href="about.html">the methods and data boundaries</a> before interpreting topic patterns.</p></footer>
   </main>
   <script src="data/catalog.js"></script>
+  <script src="data/gap-hypotheses.js"></script>
   <script src="map.js"></script>
 </body>
 </html>
