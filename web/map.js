@@ -182,26 +182,44 @@ function wrappedLines(value, maxChars, maxLines) {
 }
 function buildGapMap() {
   gapLayer.replaceChildren(); gapConnectionLayer.replaceChildren();
+  gapPointForTopic.clear(); candidateRecordsByTopic.clear();
   const ordered = topics.map(topic => ({topic,hypothesis:hypothesisByTopic.get(topic.id)})).filter(item => item.hypothesis);
+  const questionRadius = 240, questionWidth = 146, questionHeight = 126;
+  const leadRadius = 335, middleLeadRadius = 375, leadWidth = 90, leadHeight = 40;
+  const leadOffsets = [-9.5 * Math.PI / 180, 0, 9.5 * Math.PI / 180];
+  const coreRadius = 51;
+  const rectAnchor = (point, halfWidth, halfHeight, direction) => {
+    const scale = Math.min(halfWidth / Math.max(.0001,Math.abs(direction.x)), halfHeight / Math.max(.0001,Math.abs(direction.y)));
+    return {x:point.x + direction.x * scale,y:point.y + direction.y * scale};
+  };
+  const core = svgEl('g',{class:'gapCore','aria-hidden':'true'},gapLayer);
+  svgEl('circle',{class:'gapCoreCircle',cx:centerX,cy:centerY,r:coreRadius},core);
+  svgText(core,'SPACEFLIGHT',{class:'gapCoreTitle',x:centerX,y:centerY-8});
+  svgText(core,'BIOLOGY',{class:'gapCoreTitle',x:centerX,y:centerY+5});
+  svgText(core,ordered.length+' topic lenses',{class:'gapCoreMeta',x:centerX,y:centerY+21});
   for (const [index,item] of ordered.entries()) {
     const {topic,hypothesis} = item;
-    const column = index % 3, row = Math.floor(index / 3);
-    const x = 18 + column * 362, y = 10 + row * 272;
-    const w = 344;
+    const angle = -Math.PI / 2 + index * Math.PI * 2 / ordered.length;
+    const ux = Math.cos(angle), uy = Math.sin(angle);
+    const x = centerX + ux * questionRadius, y = centerY + uy * questionRadius;
+    const topicPoint = {x,y};
     const leads = leadRecords(topic.id);
     candidateRecordsByTopic.set(topic.id, leads);
-    gapPointForTopic.set(topic.id,{x:x+w/2,y:y+122});
+    gapPointForTopic.set(topic.id,topicPoint);
 
-    svgEl('rect',{class:'gapClusterBackdrop','data-topic':topic.id,x:x,y:y,width:w,height:252,rx:12},gapLayer);
+    const spokeStart = {x:centerX + ux * coreRadius,y:centerY + uy * coreRadius};
+    const spokeEnd = rectAnchor(topicPoint,questionWidth/2,questionHeight/2,{x:-ux,y:-uy});
+    svgEl('path',{class:'gapSpoke','data-topic':topic.id,d:'M'+spokeStart.x.toFixed(1)+' '+spokeStart.y.toFixed(1)+' L'+spokeEnd.x.toFixed(1)+' '+spokeEnd.y.toFixed(1),stroke:topic.color},gapConnectionLayer);
+
     const questionGroup = svgEl('g',{class:'gapQuestion',role:'button',tabindex:'0','data-topic':topic.id,'aria-label':'Candidate research question for '+topic.name+': '+hypothesis.question},gapLayer);
-    svgEl('rect',{class:'gapQuestionCard',x:x+7,y:y+7,width:w-14,height:104,rx:9,stroke:topic.color},questionGroup);
-    svgEl('circle',{class:'gapBadge',cx:x+22,cy:y+24,r:5,fill:topic.color},questionGroup);
-    svgText(questionGroup,topic.name,{class:'gapTopicTitle',x:x+34,y:y+28});
-    svgText(questionGroup,'ANALYST-INFERRED QUESTION',{class:'gapProvenance',x:x+w-15,y:y+27,'text-anchor':'end'});
-    const lines = wrappedLines(hypothesis.question,48,4);
-    const questionText = svgEl('text',{class:'gapQuestionText',x:x+17,y:y+50},questionGroup);
+    svgEl('rect',{class:'gapQuestionCard',x:x-questionWidth/2,y:y-questionHeight/2,width:questionWidth,height:questionHeight,rx:18,stroke:topic.color},questionGroup);
+    svgEl('circle',{class:'gapBadge',cx:x-questionWidth/2+14,cy:y-questionHeight/2+17,r:4,fill:topic.color},questionGroup);
+    const topicLines = wrappedLines(topic.name,21,2);
+    topicLines.forEach((line,lineIndex)=>svgText(questionGroup,line,{class:'gapTopicTitle',x:x-questionWidth/2+23,y:y-questionHeight/2+16+lineIndex*10}));
+    const lines = wrappedLines(hypothesis.question,25,5);
+    const questionText = svgEl('text',{class:'gapQuestionText',x:x-questionWidth/2+10,y:y-15},questionGroup);
     lines.forEach((line,lineIndex) => {
-      const span=svgEl('tspan',{x:x+17,dy:lineIndex===0?'0':'14'},questionText); span.textContent=line;
+      const span=svgEl('tspan',{x:x-questionWidth/2+10,dy:lineIndex===0?'0':'10.5'},questionText); span.textContent=line;
     });
     questionGroup.addEventListener('click',event=>{event.stopPropagation();setTopic(topic.id);});
     questionGroup.addEventListener('keydown',event=>{if(event.key==='Enter'||event.key===' '){event.preventDefault();setTopic(topic.id);}});
@@ -209,21 +227,30 @@ function buildGapMap() {
     const matchedLeads = query ? leads.filter(record=>recordMatches(record)) : [];
     const visibleLeads = matchedLeads.length ? matchedLeads.slice(0,3) : leads.slice(0,3);
     if (!visibleLeads.length) {
-      svgText(gapLayer,'No matching records in this snapshot',{class:'gapEmpty',x:x+15,y:y+143});
+      svgText(gapLayer,'No candidate records',{class:'gapEmpty',x:x+ux*leadRadius,y:y+uy*leadRadius,'text-anchor':'middle'});
     }
     visibleLeads.forEach((record,leadIndex)=>{
-      const rowY=y+119+leadIndex*42;
-      const edge = svgEl('path',{class:'gapEdge',d:'M'+(x+w/2)+' '+(y+111)+' C'+(x+w/2)+' '+(rowY-9)+' '+(x+12)+' '+(rowY-7)+' '+(x+12)+' '+(rowY+15)},gapConnectionLayer);
-      edge.dataset.topic=topic.id; edge.dataset.record=record.accession;
+      const offsetAngle = leadOffsets[leadIndex] || 0;
+      const childAngle = angle + offsetAngle;
+      const radius = leadIndex === 1 ? middleLeadRadius : leadRadius;
+      const point = {x:centerX + Math.cos(childAngle)*radius,y:centerY + Math.sin(childAngle)*radius};
+      const direction = {x:point.x-topicPoint.x,y:point.y-topicPoint.y};
+      const length = Math.max(1,Math.hypot(direction.x,direction.y));
+      direction.x /= length; direction.y /= length;
+      const from = rectAnchor(topicPoint,questionWidth/2,questionHeight/2,direction);
+      const to = rectAnchor(point,leadWidth/2,leadHeight/2,{x:-direction.x,y:-direction.y});
+      const normal = {x:-direction.y,y:direction.x};
+      const bend = (leadIndex-1)*14;
+      const c1 = {x:from.x+direction.x*length*.38+normal.x*bend,y:from.y+direction.y*length*.38+normal.y*bend};
+      const c2 = {x:to.x-direction.x*length*.38+normal.x*bend,y:to.y-direction.y*length*.38+normal.y*bend};
+      const edge = svgEl('path',{class:'gapEdge','data-topic':topic.id,'data-record':record.accession,d:'M'+from.x.toFixed(1)+' '+from.y.toFixed(1)+' C'+c1.x.toFixed(1)+' '+c1.y.toFixed(1)+' '+c2.x.toFixed(1)+' '+c2.y.toFixed(1)+' '+to.x.toFixed(1)+' '+to.y.toFixed(1)},gapConnectionLayer);
       const group=svgEl('g',{class:'gapCandidate',role:'button',tabindex:'0','data-topic':topic.id,'data-record':record.accession,'aria-label':record.accession+', '+(record.title||record.study_title||'OSDR record')},gapLayer);
-      svgEl('rect',{class:'gapCandidateCard',x:x+7,y:rowY,width:w-14,height:36,rx:7},group);
-      svgText(group,record.accession,{class:'gapAccession',x:x+15,y:rowY+15});
-      const title=String(record.title||record.study_title||'Untitled OSDR record');
-      svgText(group,title.length>43?title.slice(0,42).trimEnd()+'…':title,{class:'gapCandidateTitle',x:x+77,y:rowY+14});
-      const metadata=[record.organism,record.assay_type,record.mission].filter(Boolean).join(' · ');
-      svgText(group,metadata.length>48?metadata.slice(0,47).trimEnd()+'…':(metadata||'Metadata details unavailable'),{class:'gapCandidateMeta',x:x+77,y:rowY+28});
-      group.addEventListener('click',event=>{event.stopPropagation();selectedRecord=record.accession;renderPanel();renderFocus();});
-      group.addEventListener('keydown',event=>{if(event.key==='Enter'||event.key===' '){event.preventDefault();selectedRecord=record.accession;renderPanel();renderFocus();}});
+      svgEl('rect',{class:'gapCandidateCard',x:point.x-leadWidth/2,y:point.y-leadHeight/2,width:leadWidth,height:leadHeight,rx:20},group);
+      svgText(group,record.accession,{class:'gapAccession',x:point.x,y:point.y+3,'text-anchor':'middle'});
+      const title=svgEl('title',{},group); title.textContent=record.accession+' · '+(record.title||record.study_title||'OSDR record')+(record.organism?' · '+record.organism:'')+(record.assay_type?' · '+record.assay_type:'');
+      const selectRecord=event=>{event.stopPropagation();selectedRecord=record.accession;renderPanel();renderFocus();focusPoint(point.x,point.y,1.35);};
+      group.addEventListener('click',selectRecord);
+      group.addEventListener('keydown',event=>{if(event.key==='Enter'||event.key===' '){event.preventDefault();selectRecord(event);}});
     });
   }
 }
@@ -256,10 +283,12 @@ function renderGapFocus() {
     for (const node of gapLayer.querySelectorAll('[data-topic="'+topic.id+'"]')) {
       node.style.display=topicIncluded?'':'none';
     }
-    for (const node of gapConnectionLayer.querySelectorAll('[data-topic="'+topic.id+'"]')) {
+    for (const node of gapConnectionLayer.querySelectorAll('.gapEdge[data-topic="'+topic.id+'"]')) {
       const record=recordById.get(node.dataset.record);
       node.style.display=topicIncluded&&(!query||topicTextMatches||recordMatches(record))?'':'none';
     }
+    for (const node of gapConnectionLayer.querySelectorAll('.gapSpoke[data-topic="'+topic.id+'"]')) node.style.display=topicIncluded?'':'none';
+    for (const node of gapLayer.querySelectorAll('.gapQuestion[data-topic="'+topic.id+'"]')) node.classList.toggle('selected',topic.id===activeTopic);
     for (const node of gapLayer.querySelectorAll('.gapCandidate[data-topic="'+topic.id+'"]')) {
       const record=recordById.get(node.dataset.record);
       node.style.display=topicIncluded&&(!query||topicTextMatches||recordMatches(record))?'':'none';
@@ -492,7 +521,7 @@ function renderPanel() {
 function setLegend(mode) {
   mapLegend.replaceChildren(); mapLegend.dataset.mode=mode;
   const entries=mode==='gaps'
-    ? [['legendGap','Candidate research question'],['legendRecord','OSDR dataset lead'],['legendProposal','Metadata match · feasibility unreviewed']]
+    ? [['legendGap','Research question node'],['legendRecord','OSDR dataset lead node'],['legendProposal','Metadata-based lead · fit not checked']]
     : [['legendTopic','Research topic'],['legendRecord','OSDR dataset record'],['legendLine','Metadata topic match'],['legendOverlap','Shared records between topics']];
   for(const [className,label] of entries) {
     const item=el('span','');const icon=el('i',className);item.append(icon,document.createTextNode(label));mapLegend.append(item);
@@ -507,7 +536,7 @@ function setMapMode(mode) {
   topicModeButton.classList.toggle('active',!gapView);topicModeButton.setAttribute('aria-pressed',String(!gapView));
   transformGroup.style.display=gapView?'none':'';gapTransform.style.display=gapView?'':'none';
   svg.setAttribute('aria-label',gapView?'Gap hypotheses and candidate NASA OSDR dataset leads across nine research topics':'Network map of nine research topics and NASA OSDR dataset records');
-  mapHint.textContent=gapView?'Select a question or dataset lead for details · Drag to pan · Scroll or use +/− to zoom':'Select a node for details · Drag to pan · Scroll or use +/− to zoom';
+  mapHint.textContent=gapView?'Select a question or dataset node for details · Dashed links are candidate leads · Drag to pan · Scroll or use +/− to zoom':'Select a node for details · Drag to pan · Scroll or use +/− to zoom';
   setLegend(mapMode);renderPanel();renderFocus();
 }
 function focusPoint(x,y,scale) {

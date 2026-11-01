@@ -3,3 +3,17 @@
 .mapModes{display:flex;gap:7px;padding:9px 12px;border-bottom:1px solid var(--line);background:#f8fbfe}.mapModeButton{border:1px solid #cbd9e7;border-radius:8px;background:#fff;color:#45627e;padding:8px 11px;font:inherit;font-size:11px;font-weight:750;cursor:pointer}.mapModeButton:hover,.mapModeButton:focus-visible{border-color:#83a9c8;background:#f1f8fc}.mapModeButton.active{border-color:#176c75;background:#e8f5f4;color:#145d60;box-shadow:inset 0 0 0 1px #176c7520}
 .gapClusterBackdrop{fill:#f5f8fc;stroke:#dce6f0;stroke-width:1}.gapQuestion{cursor:pointer}.gapQuestion:focus{outline:none}.gapQuestionCard{fill:#fff;stroke-width:2}.gapQuestion:hover .gapQuestionCard,.gapQuestion:focus .gapQuestionCard{stroke-width:3;filter:drop-shadow(0 2px 3px #234b681c)}.gapTopicTitle{font-size:10.5px;font-weight:850;fill:#1d3b59}.gapProvenance{font-size:7px;font-weight:800;letter-spacing:.04em;fill:#75899c}.gapQuestionText{font-size:9px;font-weight:620;fill:#425c75}.gapBadge{stroke:#fff;stroke-width:2}.gapEdge{fill:none;stroke:#d18b37;stroke-width:1.5;stroke-dasharray:5 4;opacity:.75;pointer-events:none}.gapCandidate{cursor:pointer}.gapCandidate:focus{outline:none}.gapCandidateCard{fill:#fff;stroke:#d8e3ed;stroke-width:1}.gapCandidate:hover .gapCandidateCard,.gapCandidate:focus .gapCandidateCard{fill:#fff9ef;stroke:#ce8a32;stroke-width:2}.gapAccession{font-size:8.5px;font-weight:850;fill:#17639a}.gapCandidateTitle{font-size:8px;font-weight:700;fill:#334e68}.gapCandidateMeta{font-size:7px;fill:#71859a}.gapEmpty{font-size:9px;fill:#74889b}.legendGap{width:13px;height:13px;border:2px solid #4588a0;background:#eaf6f6;transform:rotate(45deg);border-radius:3px}.legendProposal{width:21px;border-top:2px dashed #d18b37}.gapHypothesisPanel{padding:12px 13px;border-left:3px solid #28818a;border-radius:5px;background:#eef8f7;color:#294a60;font-size:12px;font-weight:750;line-height:1.55}.leadRow{display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:center;gap:5px;margin:6px 0}.leadRow .resultChoice{min-width:0}.leadRow .detailSource{margin:0;padding:6px;font-size:9px;white-space:nowrap}.mapModes+.mapStatus{padding-top:7px}
 .gapCandidate.selected .gapCandidateCard{fill:#fff5e3;stroke:#d58d31;stroke-width:2.5}
+.gapSpoke{fill:none;stroke-width:2;opacity:.2;pointer-events:none}
+.gapQuestionCard{fill:#fff;stroke-width:2.3}
+.gapQuestion.selected .gapQuestionCard{fill:#fff7e8;stroke:#d58d31;stroke-width:3.2;filter:drop-shadow(0 3px 5px #233f5b24)}
+.gapQuestion:hover .gapQuestionCard{filter:drop-shadow(0 3px 5px #233f5b24)}
+.gapTopicTitle{font-size:7.8px}
+.gapQuestionText{font-size:8.4px}
+.gapCandidateCard{fill:#edf6fd;stroke:#3f83ad;stroke-width:1.6}
+.gapCandidate:hover .gapCandidateCard,.gapCandidate:focus .gapCandidateCard{fill:#fff8ec;stroke:#ce8a32;stroke-width:2}
+.gapAccession{font-size:8.6px;text-anchor:middle;fill:#205e8d}
+.gapCoreCircle{fill:#163d5d;stroke:#fff;stroke-width:4;filter:drop-shadow(0 3px 7px #1836522b)}
+.gapCoreTitle{font-size:7.4px;font-weight:900;letter-spacing:.08em;text-anchor:middle;fill:#fff}
+.gapCoreMeta{font-size:6.3px;font-weight:650;text-anchor:middle;fill:#c7dbe9}
+.legendGap{width:17px;height:14px;border:2px solid #4588a0;background:#eaf6f6;transform:none;border-radius:5px}
+.legendRecord{width:25px;height:14px;border:1px solid #4383ad;border-radius:50px;background:#edf6fd}

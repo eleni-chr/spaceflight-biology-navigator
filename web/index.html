@@ -26,7 +26,7 @@
       <div class="heroCopy">
         <div class="eyebrow">NASA OSDR · Biological Data API snapshot</div>
         <h1>Space biology research, mapped</h1>
-        <p>Explore candidate research questions across nine public topic areas and inspect NASA OSDR dataset records that may be worth assessing. Switch views to explore the full metadata network.</p>
+        <p>Follow the central hub out to topic questions, then trace dashed connections to NASA OSDR records selected by topic metadata. Select a node to inspect its question or dataset details. Switch views to explore the full metadata network.</p>
       </div>
       <div class="heroMetrics" id="heroMetrics" aria-label="Snapshot summary"></div>
     </section>
@@ -54,9 +54,9 @@
             <g id="networkTransform"><g id="topicConnections"></g><g id="topicEdges"></g><g id="recordNodes"></g><g id="topicNodes"></g></g>
             <g id="gapTransform"><g id="gapConnections"></g><g id="gapNodes"></g></g>
           </svg>
-          <div class="mapHint" id="mapHint">Select a topic or dataset lead for details · Drag to pan · Scroll or use +/− to zoom</div>
+          <div class="mapHint" id="mapHint">Select a question or dataset node for details · Dashed links are candidate leads · Drag to pan · Scroll or use +/− to zoom</div>
         </div>
-        <div class="legend" id="mapLegend" aria-label="Map legend"><span><i class="legendGap"></i>Candidate research question</span><span><i class="legendRecord"></i>OSDR dataset lead</span><span><i class="legendProposal"></i>Metadata-based lead · not feasibility checked</span></div>
+        <div class="legend" id="mapLegend" aria-label="Map legend"><span><i class="legendGap"></i>Research question node</span><span><i class="legendRecord"></i>OSDR dataset lead node</span><span><i class="legendProposal"></i>Metadata-based lead · fit not checked</span></div>
       </div>
       <aside class="detailsPanel" aria-label="Map details">
         <div class="panelHeader"><div><span class="panelEyebrow">Explore the map</span><h2 id="detailTitle">All topics</h2></div><span class="panelCount" id="detailCount"></span></div>
